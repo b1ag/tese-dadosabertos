@@ -1,0 +1,29 @@
+[
+  {
+    "data": "2026-10-25",
+    "titulo": "Exemplo: pouca evidência sobre o uso efetivo dos dados abertos",
+    "status": "em exploração",
+    "descricao": "Edite esta anotação. Ideia: muitos estudos medem a publicação de dados, poucos medem quem usa e com que resultado.",
+    "evidencias": [
+      "Estudo X (2023), seção de limitações",
+      "Reunião de 20/10"
+    ],
+    "proximo": "Mapear na revisão quantos estudos avaliam uso e impacto.",
+    "tags": [
+      "uso",
+      "impacto"
+    ]
+  },
+  {
+    "data": "2026-10-12",
+    "titulo": "Exemplo: qualidade e metadados de dados estatísticos oficiais",
+    "status": "identificada",
+    "descricao": "Edite esta anotação. Possível lacuna sobre padrões de metadados em portais de dados estatísticos.",
+    "evidencias": [],
+    "proximo": "",
+    "tags": [
+      "metadados",
+      "qualidade"
+    ]
+  }
+]

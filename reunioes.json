@@ -1,0 +1,15 @@
+[
+  {
+    "data": "2026-11-06",
+    "titulo": "",
+    "anotacoes": [
+      "Destacada a importância da revisão sistemática como atividade pretérita à construção da lacuna de pesquisa.",
+      "Reforço da importância de seguir o protocolo da RSL com foco e otimização de tempo (leitura resumida do artigo para avaliar se ele vai ou não compor a bibliografia da pesquisa)."
+    ],
+    "encaminhamentos": [
+      { "texto": "Criação do blog da pesquisa para melhoria do acompanhamento contínuo das atividades.", "feito": true },
+      { "texto": "Inteirar-se sobre os procedimentos de homologação do Estudo Dirigido I já para o primeiro semestre do ano que vem.", "feito": false }
+    ],
+    "tags": ["rsl", "protocolo"]
+  }
+]
