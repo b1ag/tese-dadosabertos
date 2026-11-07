@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tese de doutorado</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f4f9;--surf:#fff;--ink:#0f1e33;--mut:#566982;--line:#d6e0ec;--acc:#1d5fa8;--accbg:#e3eefb;--navy:#0b2a4a;--navy2:#154a82;--gold:#f2b705;--ok:#17653a;--okbg:#ddf3e5;--no:#8a2a2a;--nobg:#f8e1e1;--wip:#7a5200;--wipbg:#fbefcf;color-scheme:light}
+:root.dark{--bg:#071426;--surf:#0e2340;--ink:#e8eef8;--mut:#9db0ca;--line:#20406b;--acc:#7db7f0;--accbg:#143a66;--ok:#7ddba0;--okbg:#14382a;--no:#f0a0a0;--nobg:#451e1e;--wip:#f1cc72;--wipbg:#43350f;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;line-height:1.25;margin:0}
+a{color:var(--acc)}:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+header.top{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:5}
+.bar{max-width:64rem;margin:auto;padding:.6rem 1.2rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none;font:600 1.1rem "Source Serif 4",serif;margin-right:auto}
+.plate{background:#fff;border-radius:6px;padding:.2rem .5rem;display:flex;align-items:center;min-height:2.2rem}
+.plate img{height:1.8rem;display:block}.logo-fb{color:var(--navy);font:600 1.05rem "Source Serif 4",serif;letter-spacing:.04em}
+nav{display:flex;gap:.2rem;flex-wrap:wrap}
+nav a,header .btn{padding:.4rem .8rem;border-radius:6px;color:#dbe6f5;text-decoration:none;border:1px solid transparent;background:none;font:inherit;cursor:pointer}
+nav a:hover,header .btn:hover{border-color:#3d5f90;color:#fff}
+nav a[aria-current=page]{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 -2px 0 var(--gold)}
+header .btn{border-color:#3d5f90}
+main{max-width:64rem;margin:auto;padding:1.5rem 1.2rem 4rem}
+.cover{position:relative;overflow:hidden;border-radius:14px;min-height:14rem;display:flex;align-items:flex-end;color:#fff;background:
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='320' viewBox='0 0 440 320'%3E%3Cg fill='none' stroke='%237db7f0' stroke-opacity='.45' stroke-width='1.5'%3E%3Cpath d='M40 240L120 160L215 205L305 95L400 140M120 160L150 60L305 95M215 205L270 292M305 95L330 20'/%3E%3C/g%3E%3Cg fill='%237db7f0' fill-opacity='.7'%3E%3Ccircle cx='40' cy='240' r='5'/%3E%3Ccircle cx='120' cy='160' r='6'/%3E%3Ccircle cx='150' cy='60' r='4'/%3E%3Ccircle cx='215' cy='205' r='6'/%3E%3Ccircle cx='270' cy='292' r='4'/%3E%3Ccircle cx='400' cy='140' r='5'/%3E%3Ccircle cx='330' cy='20' r='4'/%3E%3C/g%3E%3Ccircle cx='305' cy='95' r='9' fill='%23f2b705'/%3E%3C/svg%3E") right 1.5rem center/min(24rem,55%) no-repeat,
+radial-gradient(circle,rgba(125,183,240,.18) 1px,transparent 1.5px) 0 0/22px 22px,linear-gradient(135deg,var(--navy),var(--navy2))}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,42,74,.9),rgba(11,42,74,.3))}
+.cover-t{position:relative;z-index:2;padding:1.6rem clamp(1.2rem,4vw,2.4rem)}
+.cover h1{font-size:clamp(1.7rem,4.5vw,2.6rem);max-width:24ch}
+.tema{font:600 clamp(1.05rem,2.6vw,1.4rem) "Source Serif 4",serif;color:var(--gold);margin:.4rem 0 .2rem}
+.by{color:#c9d7ec;font-size:.95rem;margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 19rem;gap:2rem;margin-top:1.8rem;align-items:start}
+@media(max-width:52rem){.layout{grid-template-columns:1fr}}
+input,select{font:inherit;width:100%;padding:.55rem .7rem;border:1px solid var(--line);border-radius:8px;background:var(--surf);color:var(--ink)}
+.sec{font-size:1.5rem;margin:0 0 1rem}
+.btn{font:inherit;border:1px solid var(--line);background:var(--surf);color:var(--ink);padding:.5rem 1rem;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--acc)}
+.post{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1rem;box-shadow:0 1px 3px rgba(11,42,74,.06)}
+.post:hover{border-color:var(--acc)}
+.pm{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;font-size:.85rem;color:var(--mut)}
+.kind{font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:.1rem .65rem;border-radius:99px}
+.k-reuniao{background:var(--accbg);color:var(--acc)}.k-lacuna{background:rgba(242,183,5,.22);color:#7a5200}:root.dark .k-lacuna{color:#f1cc72}
+.post h2{margin:.5rem 0;font-size:1.4rem}.post h2 a{color:var(--ink);text-decoration:none}.post h2 a:hover{color:var(--acc)}
+.ex{font-family:"Source Serif 4",Georgia,serif;font-size:1.05rem;color:var(--mut);margin:.3rem 0 .9rem}
+.pf{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;align-items:center}
+.tag{font-size:.8rem;color:var(--mut);margin-right:.5rem}
+.badge{font-size:.78rem;padding:.1rem .6rem;border-radius:99px;font-weight:500}
+.b-ok{background:var(--okbg);color:var(--ok)}.b-no{background:var(--nobg);color:var(--no)}.b-wip{background:var(--wipbg);color:var(--wip)}.b-id{background:var(--accbg);color:var(--acc)}
+.b-pend{background:rgba(214,48,48,.14);color:#a32424}:root.dark .b-pend{color:#f4a6a6}
+.w{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1rem}
+.w h3{font-size:1.05rem;margin-bottom:.6rem}.w p{margin:.3rem 0}
+.mini{margin:.6rem 0 0}.mini dt{font-size:.78rem;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.05em;margin-top:.6rem}.mini dd{margin:0}
+.w ul{list-style:none;padding:0;margin:0}.w li{padding:.25rem 0}
+.sum{display:flex;gap:.5rem;flex-wrap:wrap;margin:.4rem 0 .7rem}.sum div{flex:1 1 4.5rem;background:var(--bg);border-radius:8px;padding:.4rem .7rem}
+.sum b{display:block;font:600 1.3rem "Source Serif 4",serif}.sum span{font-size:.78rem;color:var(--mut)}
+.pend{background:rgba(214,48,48,.09);border:1px solid rgba(214,48,48,.32);border-left:5px solid rgba(214,48,48,.7);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1rem}
+.pend h3{font-size:1.05rem;margin-bottom:.5rem;color:#a32424;display:flex;gap:.6rem;align-items:center}:root.dark .pend h3{color:#f4a6a6}
+.pend .cnt{font:600 .8rem "IBM Plex Sans",sans-serif;background:rgba(214,48,48,.2);border-radius:99px;padding:.05rem .6rem}
+.pend ul{list-style:none;padding:0;margin:0}.pend li{display:flex;gap:.55rem;padding:.4rem 0;border-top:1px solid rgba(214,48,48,.2);font-size:.92rem}
+.pend li:first-child{border-top:0}.pend p{margin:0;font-size:.92rem}.pend small{display:block;color:var(--mut)}.pend a{color:inherit;text-decoration:none}.pend a:hover{text-decoration:underline}
+.box{flex:none;width:1.15rem;height:1.15rem;border:2px solid var(--acc);border-radius:4px;font-size:.75rem;line-height:1;display:grid;place-items:center;margin-top:.25rem}
+.pend .box{border-color:rgba(214,48,48,.75)}.done .box{background:var(--acc);color:var(--surf)}.done{color:var(--mut)}
+.todo{list-style:none;padding:0;margin:0}.todo li{display:flex;gap:.6rem;padding:.3rem 0}
+.art{max-width:44rem;margin:0 auto;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:clamp(1.3rem,4vw,2.8rem)}
+.art h1{font-size:clamp(1.8rem,4.2vw,2.5rem);margin:.7rem 0 1.2rem}
+.art p,.art li{font-family:"Source Serif 4",Georgia,serif;font-size:1.12rem;line-height:1.75}
+.art .lead{font-size:1.27rem;color:var(--ink)}
+.art h4{font:600 .8rem "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:1.8rem 0 .5rem}
+.art hr{border:0;border-top:1px solid var(--line);margin:1.8rem 0 1rem}
+.back{display:inline-block;margin:0 0 1rem;text-decoration:none;font-size:.95rem}
+.pn{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;max-width:44rem;margin:1.2rem auto 0}.pn a{max-width:48%}
+.head{margin-bottom:1rem}.meta{color:var(--mut);margin:.3rem 0 0}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}.tools input{flex:1 1 14rem;width:auto}.tools select{width:auto}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0}
+.chip{border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:99px;padding:.15rem .8rem;font:inherit;font-size:.85rem;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--acc);color:var(--surf);border-color:var(--acc)}
+details{background:var(--surf);border:1px solid var(--line);border-radius:8px;margin-bottom:.6rem}
+summary{cursor:pointer;padding:.8rem 1rem;list-style:none;display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}summary::before{content:"+";font-weight:600;color:var(--acc);width:1ch}
+details[open]>summary::before{content:"\2212"}details[open]>summary{border-bottom:1px solid var(--line)}
+.body{padding:1rem 1.2rem}.body h4{margin:1rem 0 .3rem;font-size:.95rem;color:var(--acc)}.body h4:first-child{margin-top:0}
+.date{color:var(--mut);font-variant-numeric:tabular-nums;min-width:6rem}.t{font-weight:600;flex:1 1 16rem}
+.tree{margin-top:1rem}.tree details{background:none;border:0;border-radius:0;margin:0}
+.tree .yr>summary{padding:.6rem 0;font:600 1.3rem "Source Serif 4",Georgia,serif}.tree .yr[open]>summary{border:0}
+.tree .in{margin-left:.45rem;padding-left:1.3rem;border-left:2px solid var(--line)}
+.tree .mh{font:600 .8rem "IBM Plex Sans",sans-serif;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;margin:.9rem 0 .4rem}
+.tree .mt{position:relative;margin:.45rem 0;background:var(--surf);border:1px solid var(--line);border-radius:8px}
+.tree .mt::before{content:"";position:absolute;left:-1.3rem;top:1.3rem;width:1.3rem;border-top:2px solid var(--line)}
+.tree .mt::after{content:"";position:absolute;left:calc(-1.3rem - 5px);top:calc(1.3rem - 4px);width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.tree .mt[open]>summary{border-bottom:1px solid var(--line)}
+.tree .panel{padding:1rem 1.2rem}.tree .panel h4{margin:1rem 0 .4rem;font-size:.95rem;color:var(--acc)}.tree .panel p{margin:.4rem 0}
+.empty{padding:2rem;text-align:center;color:var(--mut);border:1px dashed var(--line);border-radius:10px;background:var(--surf)}
+.err{padding:2rem;text-align:center;color:var(--no)}
+footer{text-align:center;color:var(--mut);font-size:.85rem;padding:2rem 1rem}
+.info{background:var(--accbg);border-left:5px solid var(--acc);border-radius:8px;padding:1.1rem 1.3rem;margin:1.2rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem 2rem}
+.info dt{font-weight:600;color:var(--acc);font-size:.9rem}.info dd{margin:0}
+.h2s{font-size:1.4rem;margin:2.2rem 0 .8rem}
+.pend.board{margin:1.5rem 0}.pend.board h3{font-size:1.2rem}
+.sum.wide div{background:var(--surf);border:1px solid var(--line);flex:0 1 8rem}
+.notes{background:var(--surf);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:8px;padding:1.1rem 1.3rem;margin-top:2rem}
+.notes h2{font-size:1.2rem;margin:0 0 .5rem}.notes ul{list-style:none;margin:.8rem 0;padding:0}
+.notes li{padding:.5rem 0;border-top:1px solid var(--line);display:flex;gap:.7rem;flex-wrap:wrap;justify-content:space-between}
+</style>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <a class="brand" href="#inicio"><span class="plate"><img src="logo-ence.png" alt="ENCE" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fb',textContent:'ENCE'}))"></span><span id="brand">Tese de doutorado</span></a>
+  <nav aria-label="Principal"><a href="#inicio" data-v="inicio">Início</a><a href="#reunioes" data-v="reunioes">Reuniões</a><a href="#rsl" data-v="rsl">Revisão sistemática</a><a href="#lacunas" data-v="lacunas">Lacunas</a></nav>
+  <button class="btn" id="theme" aria-label="Alternar tema claro e escuro">Tema</button>
+</div></header>
+<main id="app" aria-live="polite"></main>
+<footer id="foot"></footer>
+<script>
+const $=s=>document.querySelector(s),app=$('#app'),D={};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const fmt=d=>d?new Date(d+'T12:00:00').toLocaleDateString('pt-BR'):'';
+const fmtL=d=>d?new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'numeric',month:'long',year:'numeric'}):'';
+const cut=(s,n)=>s.length>n?s.slice(0,n).trimEnd()+'…':s;
+/*LOAD*/
+async function load(k,f){if(!D[k]){const r=await fetch(f);if(!r.ok)throw new Error('Não foi possível ler o arquivo '+f+'. Confira se ele está no repositório, na mesma pasta do index.html, e se você abriu o endereço do GitHub Pages (veja o README).');D[k]=await r.json()}return D[k]}
+/*END*/
+const SL={incluido:['Incluído','b-ok'],excluido:['Excluído','b-no'],analise:['Em análise','b-wip']};
+const sk=s=>{const n=norm(s);return n.includes('inclu')?'incluido':n.includes('exclu')?'excluido':'analise'};
+const LS={identificada:['Identificada','b-id'],exploracao:['Em exploração','b-wip'],questao:['Virou questão de pesquisa','b-ok'],descartada:['Descartada','b-no']};
+const lk=s=>{const n=norm(s);return n.includes('explor')?'exploracao':n.includes('quest')?'questao':n.includes('descart')?'descartada':'identificada'};
+const bd=(M,k)=>`<span class="badge ${M[k][1]}">${M[k][0]}</span>`;
+const tags=t=>(t||[]).map(x=>`<span class="tag">#${esc(x)}</span>`).join('');
+const load4=()=>Promise.all([load('s','site.json'),load('m','reunioes.json'),load('r','rsl.json'),load('l','lacunas.json')]);
+const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50)||'x';
+function keys(){const u=new Set(),mk=(x,b)=>{let k=slug(x.id||b),n=k,i=2;while(u.has(n))n=k+'-'+i++;u.add(n);x.k=n};D.m.forEach(x=>mk(x,x.data+'-'+(x.titulo||'')));D.l.forEach(x=>mk(x,(x.data||'')+'-'+x.titulo))}
+const byDate=a=>[...a].sort((x,y)=>(y.data||'').localeCompare(x.data||''));
+const title=x=>x.titulo||'Reunião de orientação de '+fmt(x.data);
+const pendN=x=>(x.encaminhamentos||[]).filter(e=>!e.feito).length;
+const todo=x=>x.encaminhamentos?.length?`<h4>Encaminhamentos</h4><ul class="todo">${x.encaminhamentos.map(e=>`<li class="${e.feito?'done':''}"><span class="box">${e.feito?'✓':''}</span><span>${esc(e.texto)}</span></li>`).join('')}</ul>`:'';
+const card=(t,x)=>{const r=t==='reuniao',n=r?pendN(x):0,ex=r?(x.anotacoes?.[0]||x.encaminhamentos?.[0]?.texto||''):(x.descricao||'');
+  return `<article class="post"><div class="pm"><span class="kind k-${t}">${r?'Reunião de orientação':'Lacuna de pesquisa'}</span><time>${fmtL(x.data)}</time>${r?(n?`<span class="badge b-pend">${n} ${n>1?'pendentes':'pendente'}</span>`:''):bd(LS,lk(x.status))}</div>
+  <h2><a href="#${t}-${x.k}">${esc(r?title(x):x.titulo)}</a></h2>${ex?`<p class="ex">${esc(cut(ex,220))}</p>`:''}
+  <div class="pf"><span>${tags(x.tags)}</span><a href="#${t}-${x.k}">Ler publicação →</a></div></article>`};
+
+async function inicio(){
+  const [s,m,r,L]=await load4(),E=r.estudos,last=byDate(m)[0],top=byDate(L).slice(0,3);
+  const pend=byDate(m).flatMap(x=>(x.encaminhamentos||[]).filter(e=>!e.feito).map(e=>({x,t:e.texto})));
+  const info=[['Doutoranda',s.doutoranda],['Orientadora',s.orientadora],['Coorientadora',s.coorientadora],['Instituição',s.instituicao],['Programa',s.programa]].filter(i=>i[1]);
+  app.innerHTML=`<section class="cover"><img src="banner.png" alt="" onerror="this.remove()"><div class="cover-t"><h1>${esc(s.titulo)}</h1><p class="tema">${esc(s.tema)}</p></div></section>
+  <dl class="info">${info.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+  ${s.resumo?`<p class="meta" style="max-width:68ch">${esc(s.resumo)}</p>`:''}
+  <section class="pend board" aria-label="Quadro de pendências"><h3>Quadro de pendências <span class="cnt">${pend.length}</span></h3>${pend.length?`<ul>${pend.map(p=>`<li><span class="box"></span><a href="#reuniao-${p.x.k}"><span>${esc(p.t)}</span><small>Reunião de ${fmt(p.x.data)}</small></a></li>`).join('')}</ul>`:'<p>Nenhuma pendência. Todos os encaminhamentos estão concluídos.</p>'}</section>
+  <h2 class="h2s">Registro de reuniões</h2>
+  ${last?`<div class="w"><h3>${esc(title(last))}</h3><p class="meta">${fmtL(last.data)}</p>${(last.anotacoes||[]).map(p=>`<p>${esc(p)}</p>`).join('')}${todo(last)}<p><a href="#reuniao-${last.k}">Abrir como publicação →</a></p></div>`:'<div class="empty">Nenhuma reunião registrada ainda.</div>'}
+  <p><a href="#reunioes">Ver todas as ${m.length} reuniões</a></p>
+  <h2 class="h2s">Controle da revisão sistemática</h2>
+  <div class="sum wide">${[['',E.length,'artigos'],...Object.keys(SL).map(k=>[k,E.filter(e=>sk(e.status)===k).length,SL[k][0].toLowerCase()+'s'])].map(x=>`<div><b>${x[1]}</b><span>${x[2]}</span></div>`).join('')}</div>
+  <p><a href="#rsl">Abrir o controle da revisão</a></p>
+  <aside class="notes" aria-label="Anotações sobre lacunas de pesquisa"><h2>Anotações: possíveis lacunas de pesquisa</h2><ul>${top.map(x=>`<li><a href="#lacuna-${x.k}">${esc(x.titulo)}</a>${bd(LS,lk(x.status))}</li>`).join('')}</ul><a href="#lacunas">Ver todas as lacunas</a></aside>`;
+}
+
+const MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+async function reunioes(){
+  const m=byDate(D.m);
+  app.innerHTML=`<div class="head"><h1>Registro de reuniões</h1><p class="meta" style="max-width:60ch">Linha do tempo das orientações, da mais recente para a mais antiga. Abra o ano, clique na reunião e leia o que foi discutido e combinado.</p></div>
+  <input type="search" id="q" placeholder="Buscar em todas as reuniões" aria-label="Buscar reuniões"><div class="tree" id="tree"></div>`;
+  const draw=()=>{const q=norm($('#q').value),rows=m.filter(x=>!q||norm(JSON.stringify(x)).includes(q));
+    if(!rows.length){$('#tree').innerHTML='<div class="empty" style="margin-top:1rem">Nenhuma reunião encontrada. Limpe a busca.</div>';return}
+    const by={};rows.forEach(x=>{const [y,mo]=x.data.split('-');((by[y]??={})[mo]??=[]).push(x)});
+    $('#tree').innerHTML=Object.keys(by).sort().reverse().map((y,yi)=>{const n=Object.values(by[y]).flat().length;
+      return `<details class="yr" ${yi===0||q?'open':''}><summary>${y} <span class="meta" style="font:400 .9rem 'IBM Plex Sans',sans-serif">${n} ${n>1?'reuniões':'reunião'}</span></summary><div class="in">`+
+      Object.keys(by[y]).sort().reverse().map(mo=>`<h4 class="mh">${MES[+mo-1]}</h4>`+by[y][mo].map(x=>{
+        const lbl=x.titulo||(x.anotacoes?.[0]||'Sem título'),pn=pendN(x);
+        return `<details class="mt" ${x===rows[0]||q?'open':''}><summary><span class="date">${fmt(x.data)}</span><span class="t">${esc(cut(lbl,80))}</span>${pn?`<span class="badge b-pend">${pn} ${pn>1?'pendentes':'pendente'}</span>`:''}</summary>
+        <div class="panel">${(x.anotacoes||[]).map(p=>`<p>${esc(p)}</p>`).join('')}${todo(x)}<p>${tags(x.tags)} <a href="#reuniao-${x.k}">Abrir como publicação →</a></p></div></details>`}).join('')).join('')+`</div></details>`}).join('')};
+  $('#q').oninput=draw;draw();
+}
+
+async function rsl(){
+  const r=D.r,E=r.estudos;
+  app.innerHTML=`<div class="head"><h1>Controle da revisão sistemática</h1><p class="meta" style="max-width:60ch">${esc(r.pergunta||'')}</p></div>
+  <div class="tools"><input type="search" id="q" placeholder="Buscar por título, autor ou palavra-chave" aria-label="Buscar artigos"><select id="fs" aria-label="Status"><option value="">Todos os status</option>${Object.keys(SL).map(k=>`<option value="${k}">${SL[k][0]}</option>`).join('')}</select><button class="btn" id="csv">Baixar CSV</button></div>
+  <p class="meta" id="cnt"></p><div id="list"></div>`;
+  let rows=[];const draw=()=>{const q=norm($('#q').value),s=$('#fs').value;
+    rows=E.filter(e=>(!s||sk(e.status)===s)&&(!q||norm([e.titulo,e.autores,e.veiculo,e.resumo,(e.tags||[]).join(' ')].join(' ')).includes(q))).sort((a,b)=>(b.leitura||'').localeCompare(a.leitura||''));
+    $('#cnt').textContent=rows.length+' de '+E.length+' artigos';
+    $('#list').innerHTML=rows.length?rows.map(e=>`<details><summary><span class="date">${fmt(e.leitura)||e.ano||''}</span><span class="t">${esc(e.titulo)}</span>${bd(SL,sk(e.status))}</summary><div class="body">
+      <p>${esc(e.autores)}${e.veiculo?'. <em>'+esc(e.veiculo)+'</em>':''}${e.ano?' ('+esc(e.ano)+')':''}</p>
+      ${e.resumo?`<h4>Resumo</h4><p>${esc(e.resumo)}</p>`:''}${e.motivo?`<h4>Decisão e notas</h4><p>${esc(e.motivo)}</p>`:''}
+      <p>${tags(e.tags)}${e.doi?` <a href="https://doi.org/${esc(e.doi)}" target="_blank" rel="noopener">Abrir DOI</a>`:''}</p></div></details>`).join('')
+      :'<div class="empty">Nenhum artigo registrado ainda. Inclua os artigos em rsl.json.</div>'};
+  $('#q').oninput=draw;$('#fs').oninput=draw;
+  $('#csv').onclick=()=>{const h=['leitura','ano','titulo','autores','veiculo','doi','status','motivo','tags'],c=v=>'"'+String(Array.isArray(v)?v.join('; '):v??'').replace(/"/g,'""')+'"';
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+h.join(',')+'\n'+rows.map(e=>h.map(k=>c(e[k])).join(',')).join('\n')],{type:'text/csv'}));a.download='revisao-sistematica.csv';a.click()};
+  draw();
+}
+
+async function lacunas(){
+  const L=byDate(D.l);let f='';
+  app.innerHTML=`<div class="head"><h1>Lacunas de pesquisa</h1><p class="meta" style="max-width:60ch">Anotações em construção sobre o que a literatura ainda não responde.</p></div>
+  <div class="chips" id="chips">${['',...Object.keys(LS)].map(k=>`<button class="chip" aria-pressed="${k===''}" data-k="${k}">${k?LS[k][0]:'Todas'}</button>`).join('')}</div><div id="list"></div>`;
+  const draw=()=>{const rows=L.filter(x=>!f||lk(x.status)===f);$('#list').innerHTML=rows.length?rows.map(x=>card('lacuna',x)).join(''):'<div class="empty">Nenhuma lacuna com este status.</div>'};
+  $('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;f=b.dataset.k;document.querySelectorAll('#chips .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));draw()};
+  draw();
+}
+
+function post(kind,k){
+  const r=kind==='reuniao',all=byDate(r?D.m:D.l),i=all.findIndex(x=>x.k===k),x=all[i];
+  if(!x){app.innerHTML='<div class="empty">Publicação não encontrada. <a href="#inicio">Voltar ao início</a></div>';return}
+  document.title=(r?title(x):x.titulo)+' | '+(D.s.nomeBlog||'');
+  const nw=all[i-1],ol=all[i+1],lk2=y=>`#${kind}-${y.k}`,nm=y=>esc(cut(r?title(y):y.titulo,48));
+  const paras=r?x.anotacoes||[]:[x.descricao].filter(Boolean);
+  app.innerHTML=`<a class="back" href="#${r?'reunioes':'lacunas'}">← ${r?'Todas as reuniões':'Todas as lacunas'}</a>
+  <article class="art"><div class="pm"><span class="kind k-${kind}">${r?'Reunião de orientação':'Lacuna de pesquisa'}</span><time>${fmtL(x.data)}</time>${r?'':bd(LS,lk(x.status))}</div>
+  <h1>${esc(r?title(x):x.titulo)}</h1>
+  ${paras.map((p,j)=>`<p class="${j?'':'lead'}">${esc(p)}</p>`).join('')}
+  ${r?todo(x):`${x.evidencias?.length?`<h4>Onde apareceu</h4><ul>${x.evidencias.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>`:''}${x.proximo?`<h4>Próximo passo</h4><p>${esc(x.proximo)}</p>`:''}`}
+  <hr><p style="font-size:.95rem">${tags(x.tags)}${x.link?` <a href="${esc(x.link)}" target="_blank" rel="noopener">Abrir ata completa</a>`:''}</p></article>
+  <div class="pn"><span>${ol?`<a href="${lk2(ol)}">← ${nm(ol)}</a>`:''}</span><span>${nw?`<a href="${lk2(nw)}">${nm(nw)} →</a>`:''}</span></div>`;
+}
+
+const V={inicio,reunioes,rsl,lacunas};
+async function route(){
+  const h=location.hash.slice(1),pm=/^(reuniao|lacuna)-(.+)$/.exec(h),v=V[h]?h:pm?(pm[1]==='reuniao'?'reunioes':'lacunas'):'inicio';
+  document.querySelectorAll('nav a').forEach(a=>a.dataset.v===v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  try{await load4();keys();pm?post(pm[1],pm[2]):await V[v]()}catch(e){app.innerHTML='<div class="err">'+esc(e.message)+'</div>'}
+}
+(async()=>{
+  try{const s=await load('s','site.json');$('#brand').textContent=s.nomeBlog;document.title=s.nomeBlog+' | '+s.doutoranda;$('#foot').textContent='© '+new Date().getFullYear()+' '+s.doutoranda}catch(e){}
+  let t;try{t=localStorage.getItem('tema')}catch(e){}
+  const set=d=>document.documentElement.classList.toggle('dark',d);set(t?t==='dark':matchMedia('(prefers-color-scheme:dark)').matches);
+  $('#theme').onclick=()=>{const d=!document.documentElement.classList.contains('dark');set(d);try{localStorage.setItem('tema',d?'dark':'light')}catch(e){}};
+  addEventListener('hashchange',()=>{route();scrollTo(0,0)});route();
+})();
+</script>
+</body>
+</html>
