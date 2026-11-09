@@ -325,11 +325,34 @@ function setOwner(on){D.edit=on;document.body.classList.toggle('owner',on);lock.
 async function verify(tk){try{const r=await GH('',tk);if(r.status===401||r.status===403){try{localStorage.removeItem('ghtoken')}catch(e){}return false}const j=await r.json();return r.ok&&!!j.permissions?.push}catch(e){return false}}
 const dl=f=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([json(f)],{type:'application/json'}));a.download=f;a.click()};
 let tt;function toast(m,o={}){const t=$('#toast');t.innerHTML=esc(m)+(o.file?' <button class="btn sm" id="tdl">Baixar arquivo</button>':'');t.className='show'+(o.err?' err2':'');if(o.file)$('#tdl').onclick=()=>dl(o.file);clearTimeout(tt);tt=setTimeout(()=>t.className='',o.err?12000:6000)}
-async function save(f){if(D.s.modoDemo)return 'demo';const tk=tok();if(!tk||!repoOf())throw new Error('Sem token ou repositório. Entre no Modo editor de novo.');
-  const b=D.s.branch||'main';let r=await GH('/contents/'+f+'?ref='+b,tk);if(!r.ok)throw new Error('GitHub respondeu '+r.status+' ao ler '+f+'.');
-  const sha=(await r.json()).sha;
-  r=await GH('/contents/'+f,tk,{method:'PUT',body:JSON.stringify({message:'Atualização pelo site: '+f,branch:b,sha,content:btoa(unescape(encodeURIComponent(json(f))))})});
-  if(!r.ok)throw new Error('Não foi possível gravar '+f+' ('+r.status+'). Confira se o token tem permissão de escrita.')}
+async function save(f){
+  if(D.s.modoDemo)return 'demo';
+  const tk=tok(),repo=repoOf();
+  if(!tk||!repo)throw new Error('Token ou repositório não configurado. Entre novamente no Modo editor.');
+  const readError=async r=>{let j={};try{j=await r.json()}catch(e){}return j.message||('HTTP '+r.status)};
+  // Consulta os metadados para usar a branch padrão real do repositório.
+  let r=await GH('',tk);
+  if(!r.ok)throw new Error('Erro ao acessar o repositório: '+await readError(r));
+  const meta=await r.json();
+  const branch=D.s.branch||meta.default_branch;
+  if(!branch)throw new Error('Não foi possível identificar a branch padrão do repositório.');
+  // Recupera o SHA atual, necessário para atualizar um arquivo existente.
+  r=await GH('/contents/'+encodeURIComponent(f)+'?ref='+encodeURIComponent(branch),tk);
+  if(!r.ok)throw new Error('Erro ao localizar '+f+' na branch '+branch+': '+await readError(r));
+  const file=await r.json();
+  if(!file.sha)throw new Error('O GitHub não retornou o identificador SHA de '+f+'.');
+  r=await GH('/contents/'+encodeURIComponent(f),tk,{
+    method:'PUT',
+    body:JSON.stringify({
+      message:'Atualização pelo site: '+f,
+      branch,
+      sha:file.sha,
+      content:btoa(unescape(encodeURIComponent(json(f))))
+    })
+  });
+  if(!r.ok)throw new Error('Falha ao salvar '+f+': '+await readError(r));
+  return 'saved';
+}
 async function persist(kind){const f=FILE[kind];toast('Salvando no GitHub...');try{const r=await save(f);toast(r==='demo'?'Demonstração: a alteração vale só nesta visita.':'Salvo no GitHub. O site publicado atualiza em cerca de 1 minuto.')}catch(e){toast(e.message,{err:1,file:f})}}
 const lines=x=>x.split(/\n+/).map(y=>y.trim()).filter(Boolean),csvl=x=>x.split(',').map(y=>y.trim()).filter(Boolean);
 const J=a=>(a||[]).join('\n'),T=a=>(a||[]).join(', ');
