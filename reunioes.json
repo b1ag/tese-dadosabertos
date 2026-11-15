@@ -36,8 +36,7 @@
       { "texto": "Realização do exercício 4", "feito": true }
     ],
     "tags": ["dadosabertos", "odi", "ciencia", "aberta"]
-  }
-]
+  },
   {
     "data": "2026-06-26",
     "titulo": "Reunião #2",
@@ -68,4 +67,5 @@
       { "texto": "Documentar os usos de IA sempre com bom senso e transparência", "feito": true }
     ],
     "tags": ["tese", "dadosabertos", "ia", "qualidade"]
-  },
+  }
+]
