@@ -4,242 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tese de doutorado</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f1f4f9;--surf:#fff;--ink:#0f1e33;--mut:#566982;--line:#d6e0ec;--acc:#1d5fa8;--accbg:#e3eefb;--navy:#0b2a4a;--navy2:#154a82;--gold:#f2b705;--ok:#17653a;--okbg:#ddf3e5;--no:#8a2a2a;--nobg:#f8e1e1;--wip:#7a5200;--wipbg:#fbefcf;color-scheme:light}
-:root.dark{--bg:#071426;--surf:#0e2340;--ink:#e8eef8;--mut:#9db0ca;--line:#20406b;--acc:#7db7f0;--accbg:#143a66;--ok:#7ddba0;--okbg:#14382a;--no:#f0a0a0;--nobg:#451e1e;--wip:#f1cc72;--wipbg:#43350f;color-scheme:dark}
+:root{--bg:#eef2f8;--surf:#fff;--ink:#0f1e33;--mut:#5a6b82;--line:#dbe3ee;--acc:#1d5fa8;--accbg:#e6effb;--navy:#0a2342;--navy2:#14457a;--gold:#f2b705;--ok:#17653a;--okbg:#ddf3e5;--no:#8a2a2a;--nobg:#f8e1e1;--wip:#7a5200;--wipbg:#fbefcf;--sh:0 1px 2px rgba(10,35,66,.06),0 8px 24px rgba(10,35,66,.06);color-scheme:light}
+:root.dark{--bg:#071426;--surf:#0e2340;--ink:#e8eef8;--mut:#9db0ca;--line:#20406b;--acc:#7db7f0;--accbg:#143a66;--ok:#7ddba0;--okbg:#14382a;--no:#f0a0a0;--nobg:#451e1e;--wip:#f1cc72;--wipbg:#43350f;--sh:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif}
-h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;line-height:1.25;margin:0}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;line-height:1.2;margin:0}
 a{color:var(--acc)}:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-header.top{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:5}
-.bar{max-width:64rem;margin:auto;padding:.6rem 1.2rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none;font:600 1.1rem "Source Serif 4",serif;margin-right:auto}
-.plate{background:#fff;border-radius:6px;padding:.2rem .5rem;display:flex;align-items:center;min-height:2.2rem}
-.plate img{height:1.8rem;display:block}.logo-fb{color:var(--navy);font:600 1.05rem "Source Serif 4",serif;letter-spacing:.04em}
-nav{display:flex;gap:.2rem;flex-wrap:wrap}
-nav a,header .btn{padding:.4rem .8rem;border-radius:6px;color:#dbe6f5;text-decoration:none;border:1px solid transparent;background:none;font:inherit;cursor:pointer}
-nav a:hover,header .btn:hover{border-color:#3d5f90;color:#fff}
-nav a[aria-current=page]{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 -2px 0 var(--gold)}
-header .btn{border-color:#3d5f90}
-main{max-width:64rem;margin:auto;padding:1.5rem 1.2rem 4rem}
-.cover{position:relative;overflow:hidden;border-radius:14px;min-height:14rem;display:flex;align-items:flex-end;color:#fff;background:
-url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='320' viewBox='0 0 440 320'%3E%3Cg fill='none' stroke='%237db7f0' stroke-opacity='.45' stroke-width='1.5'%3E%3Cpath d='M40 240L120 160L215 205L305 95L400 140M120 160L150 60L305 95M215 205L270 292M305 95L330 20'/%3E%3C/g%3E%3Cg fill='%237db7f0' fill-opacity='.7'%3E%3Ccircle cx='40' cy='240' r='5'/%3E%3Ccircle cx='120' cy='160' r='6'/%3E%3Ccircle cx='150' cy='60' r='4'/%3E%3Ccircle cx='215' cy='205' r='6'/%3E%3Ccircle cx='270' cy='292' r='4'/%3E%3Ccircle cx='400' cy='140' r='5'/%3E%3Ccircle cx='330' cy='20' r='4'/%3E%3C/g%3E%3Ccircle cx='305' cy='95' r='9' fill='%23f2b705'/%3E%3C/svg%3E") right 1.5rem center/min(24rem,55%) no-repeat,
-radial-gradient(circle,rgba(125,183,240,.18) 1px,transparent 1.5px) 0 0/22px 22px,linear-gradient(135deg,var(--navy),var(--navy2))}
-.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,42,74,.9),rgba(11,42,74,.3))}
-.cover-t{position:relative;z-index:2;padding:1.6rem clamp(1.2rem,4vw,2.4rem)}
-.cover h1{font-size:clamp(1.7rem,4.5vw,2.6rem);max-width:24ch}
-.tema{font:600 clamp(1.05rem,2.6vw,1.4rem) "Source Serif 4",serif;color:var(--gold);margin:.4rem 0 .2rem}
-.by{color:#c9d7ec;font-size:.95rem;margin:0}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 19rem;gap:2rem;margin-top:1.8rem;align-items:start}
-@media(max-width:52rem){.layout{grid-template-columns:1fr}}
-input,select,textarea{font:inherit;width:100%;padding:.55rem .7rem;border:1px solid var(--line);border-radius:8px;background:var(--surf);color:var(--ink)}
-.sec{font-size:1.5rem;margin:0 0 1rem}
-.btn{font:inherit;border:1px solid var(--line);background:var(--surf);color:var(--ink);padding:.5rem 1rem;border-radius:8px;cursor:pointer}
-.btn:hover{border-color:var(--acc)}
-.post{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1rem;box-shadow:0 1px 3px rgba(11,42,74,.06)}
-.post:hover{border-color:var(--acc)}
-.pm{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;font-size:.85rem;color:var(--mut)}
-.kind{font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:.1rem .65rem;border-radius:99px}
-.k-reuniao{background:var(--accbg);color:var(--acc)}.k-lacuna{background:rgba(242,183,5,.22);color:#7a5200}:root.dark .k-lacuna{color:#f1cc72}
-.post h2{margin:.5rem 0;font-size:1.4rem}.post h2 a{color:var(--ink);text-decoration:none}.post h2 a:hover{color:var(--acc)}
-.ex{font-family:"Source Serif 4",Georgia,serif;font-size:1.05rem;color:var(--mut);margin:.3rem 0 .9rem}
-.pf{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;align-items:center}
-.tag{font-size:.8rem;color:var(--mut);margin-right:.5rem}
-.badge{font-size:.78rem;padding:.1rem .6rem;border-radius:99px;font-weight:500}
-.b-ok{background:var(--okbg);color:var(--ok)}.b-no{background:var(--nobg);color:var(--no)}.b-wip{background:var(--wipbg);color:var(--wip)}.b-id{background:var(--accbg);color:var(--acc)}
-.b-pend{background:rgba(214,48,48,.14);color:#a32424}:root.dark .b-pend{color:#f4a6a6}
-.w{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1rem}
-.w h3{font-size:1.05rem;margin-bottom:.6rem}.w p{margin:.3rem 0}
-.mini{margin:.6rem 0 0}.mini dt{font-size:.78rem;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.05em;margin-top:.6rem}.mini dd{margin:0}
-.w ul{list-style:none;padding:0;margin:0}.w li{padding:.25rem 0}
-.sum{display:flex;gap:.5rem;flex-wrap:wrap;margin:.4rem 0 .7rem}.sum div{flex:1 1 4.5rem;background:var(--bg);border-radius:8px;padding:.4rem .7rem}
-.sum b{display:block;font:600 1.3rem "Source Serif 4",serif}.sum span{font-size:.78rem;color:var(--mut)}
-.pend{background:rgba(214,48,48,.09);border:1px solid rgba(214,48,48,.32);border-left:5px solid rgba(214,48,48,.7);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1rem}
-.pend h3{font-size:1.05rem;margin-bottom:.5rem;color:#a32424;display:flex;gap:.6rem;align-items:center}:root.dark .pend h3{color:#f4a6a6}
-.pend .cnt{font:600 .8rem "IBM Plex Sans",sans-serif;background:rgba(214,48,48,.2);border-radius:99px;padding:.05rem .6rem}
-.pend ul{list-style:none;padding:0;margin:0}.pend li{display:flex;gap:.55rem;padding:.4rem 0;border-top:1px solid rgba(214,48,48,.2);font-size:.92rem}
-.pend li:first-child{border-top:0}.pend p{margin:0;font-size:.92rem}.pend small{display:block;color:var(--mut)}.pend a{color:inherit;text-decoration:none}.pend a:hover{text-decoration:underline}
+.wrap{max-width:62rem;margin:auto;padding:0 1.2rem}
+.hero{color:#fff;padding:1.1rem 0 5.5rem;background:
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='320' viewBox='0 0 440 320'%3E%3Cg fill='none' stroke='%237db7f0' stroke-opacity='.4' stroke-width='1.5'%3E%3Cpath d='M40 240L120 160L215 205L305 95L400 140M120 160L150 60L305 95M215 205L270 292M305 95L330 20'/%3E%3C/g%3E%3Cg fill='%237db7f0' fill-opacity='.65'%3E%3Ccircle cx='40' cy='240' r='5'/%3E%3Ccircle cx='120' cy='160' r='6'/%3E%3Ccircle cx='150' cy='60' r='4'/%3E%3Ccircle cx='215' cy='205' r='6'/%3E%3Ccircle cx='270' cy='292' r='4'/%3E%3Ccircle cx='400' cy='140' r='5'/%3E%3Ccircle cx='330' cy='20' r='4'/%3E%3C/g%3E%3Ccircle cx='305' cy='95' r='9' fill='%23f2b705'/%3E%3C/svg%3E") right 2rem center/min(24rem,50%) no-repeat,
+radial-gradient(circle,rgba(125,183,240,.16) 1px,transparent 1.5px) 0 0/22px 22px,linear-gradient(135deg,var(--navy),var(--navy2))}
+.top{display:flex;align-items:center;gap:.8rem;margin-bottom:2.2rem}
+.plate{background:#fff;border-radius:8px;padding:.25rem .6rem;display:flex;align-items:center;min-height:2.4rem}.plate img{height:1.9rem;display:block}
+.logo-fb{color:var(--navy);font:600 1.05rem "Source Serif 4",serif;letter-spacing:.04em}
+.brand{font:600 1.05rem "Source Serif 4",serif;margin-right:auto}
+.tbtn{font:inherit;color:#dbe6f5;background:none;border:1px solid #3d5f90;border-radius:99px;padding:.25rem .9rem;cursor:pointer}.tbtn:hover{color:#fff;background:rgba(255,255,255,.12)}
+.hero h1{font-size:clamp(1.9rem,5vw,3rem);max-width:22ch;letter-spacing:-.01em}
+.tema{font:600 clamp(1.1rem,3vw,1.5rem) "Source Serif 4",serif;color:var(--gold);margin:.7rem 0 .3rem}
+.hero p.lead{color:#c9d7ec;max-width:56ch;margin:.3rem 0 0}
+.info{margin:-3.3rem 0 0;position:relative;background:var(--surf);border-radius:14px;box-shadow:var(--sh);padding:1.1rem 1.4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.8rem 2rem}
+.info dt{font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--acc)}.info dd{margin:0;font-weight:500}
+.tabs{position:sticky;top:0;z-index:5;background:var(--bg);margin-top:1.2rem;border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:.3rem;overflow-x:auto}
+.tabs a{padding:.9rem 1.2rem;text-decoration:none;color:var(--mut);font-weight:500;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs a:hover{color:var(--ink)}.tabs a[aria-current=page]{color:var(--acc);border-color:var(--gold);font-weight:600}
+main{padding:1.6rem 1.2rem 4rem}
+.sechead{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin:2rem 0 1rem}.sechead h2{font-size:1.5rem}
+.meta{color:var(--mut);margin:.3rem 0 0}
+input,select{font:inherit;padding:.55rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--surf);color:var(--ink)}
+input[type=search]{min-width:min(18rem,100%)}
+.btn{font:inherit;border:1px solid var(--line);background:var(--surf);color:var(--ink);padding:.5rem 1rem;border-radius:10px;cursor:pointer}.btn:hover{border-color:var(--acc)}
+.card{background:var(--surf);border-radius:14px;box-shadow:var(--sh);padding:1.2rem 1.4rem}
+.alert{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;background:rgba(242,183,5,.14);border:1px solid rgba(242,183,5,.5);border-left:5px solid var(--gold);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1rem}
+.alert.soon{background:rgba(242,183,5,.26)}
+.adate{background:var(--navy);color:#fff;border-radius:10px;padding:.4rem .9rem;text-align:center;line-height:1.1;min-width:4rem}.adate b{display:block;font:600 1.8rem "Source Serif 4",serif}.adate span{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+.alert h3{font-size:1.1rem}.alert p{margin:.15rem 0}
+.pend{background:rgba(214,48,48,.09);border:1px solid rgba(214,48,48,.32);border-left:5px solid rgba(214,48,48,.7);border-radius:12px;padding:1.1rem 1.3rem}
+.pend h3{font-size:1.15rem;color:#a32424;display:flex;gap:.6rem;align-items:center;margin-bottom:.4rem}:root.dark .pend h3{color:#f4a6a6}
+.cnt{font:600 .8rem "IBM Plex Sans",sans-serif;background:rgba(214,48,48,.2);border-radius:99px;padding:.05rem .65rem}
+.pend ul{list-style:none;padding:0;margin:0}.pend li{display:flex;gap:.6rem;padding:.45rem 0;border-top:1px solid rgba(214,48,48,.2)}.pend li:first-child{border-top:0}.pend small{display:block;color:var(--mut)}.pend p{margin:0}
 .box{flex:none;width:1.15rem;height:1.15rem;border:2px solid var(--acc);border-radius:4px;font-size:.75rem;line-height:1;display:grid;place-items:center;margin-top:.25rem}
 .pend .box{border-color:rgba(214,48,48,.75)}.done .box{background:var(--acc);color:var(--surf)}.done{color:var(--mut)}
 .todo{list-style:none;padding:0;margin:0}.todo li{display:flex;gap:.6rem;padding:.3rem 0}
-.art{max-width:44rem;margin:0 auto;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:clamp(1.3rem,4vw,2.8rem)}
-.art h1{font-size:clamp(1.8rem,4.2vw,2.5rem);margin:.7rem 0 1.2rem}
-.art p,.art li{font-family:"Source Serif 4",Georgia,serif;font-size:1.12rem;line-height:1.75}
-.art .lead{font-size:1.27rem;color:var(--ink)}
-.art h4{font:600 .8rem "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:1.8rem 0 .5rem}
-.art hr{border:0;border-top:1px solid var(--line);margin:1.8rem 0 1rem}
-.back{display:inline-block;margin:0 0 1rem;text-decoration:none;font-size:.95rem}
-.pn{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;max-width:44rem;margin:1.2rem auto 0}.pn a{max-width:48%}
-.head{margin-bottom:1rem}.meta{color:var(--mut);margin:.3rem 0 0}
-.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}.tools input{flex:1 1 14rem;width:auto}.tools select{width:auto}
-.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0}
-.chip{border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:99px;padding:.15rem .8rem;font:inherit;font-size:.85rem;cursor:pointer}
-.chip[aria-pressed=true]{background:var(--acc);color:var(--surf);border-color:var(--acc)}
-details{background:var(--surf);border:1px solid var(--line);border-radius:8px;margin-bottom:.6rem}
-summary{cursor:pointer;padding:.8rem 1rem;list-style:none;display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}
-summary::-webkit-details-marker{display:none}summary::before{content:"+";font-weight:600;color:var(--acc);width:1ch}
-details[open]>summary::before{content:"\2212"}details[open]>summary{border-bottom:1px solid var(--line)}
-.body{padding:1rem 1.2rem}.body h4{margin:1rem 0 .3rem;font-size:.95rem;color:var(--acc)}.body h4:first-child{margin-top:0}
+.tag{font-size:.8rem;color:var(--mut);margin-right:.5rem}
+.badge{font-size:.78rem;padding:.1rem .65rem;border-radius:99px;font-weight:500;white-space:nowrap}
+.b-ok{background:var(--okbg);color:var(--ok)}.b-no{background:var(--nobg);color:var(--no)}.b-wip{background:var(--wipbg);color:var(--wip)}.b-id{background:var(--accbg);color:var(--acc)}.b-pend{background:rgba(214,48,48,.14);color:#a32424}:root.dark .b-pend{color:#f4a6a6}
+details{background:var(--surf);border-radius:12px;box-shadow:var(--sh);margin-bottom:.7rem}
+summary{cursor:pointer;padding:.9rem 1.1rem;list-style:none;display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap}summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-weight:600;color:var(--acc);width:1ch}details[open]>summary::before{content:"\2212"}details[open]>summary{border-bottom:1px solid var(--line)}
+.body{padding:1rem 1.3rem 1.2rem}.body h4{margin:1rem 0 .35rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--acc)}.body h4:first-child{margin-top:0}.body p{margin:.45rem 0}
 .date{color:var(--mut);font-variant-numeric:tabular-nums;min-width:6rem}.t{font-weight:600;flex:1 1 16rem}
-.tree{margin-top:1rem}.tree details{background:none;border:0;border-radius:0;margin:0}
-.tree .yr>summary{padding:.6rem 0;font:600 1.3rem "Source Serif 4",Georgia,serif}.tree .yr[open]>summary{border:0}
-.tree .in{margin-left:.45rem;padding-left:1.3rem;border-left:2px solid var(--line)}
-.tree .mh{font:600 .8rem "IBM Plex Sans",sans-serif;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;margin:.9rem 0 .4rem}
-.tree .mt{position:relative;margin:.45rem 0;background:var(--surf);border:1px solid var(--line);border-radius:8px}
-.tree .mt::before{content:"";position:absolute;left:-1.3rem;top:1.3rem;width:1.3rem;border-top:2px solid var(--line)}
-.tree .mt::after{content:"";position:absolute;left:calc(-1.3rem - 5px);top:calc(1.3rem - 4px);width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
-.tree .mt[open]>summary{border-bottom:1px solid var(--line)}
-.tree .panel{padding:1rem 1.2rem}.tree .panel h4{margin:1rem 0 .4rem;font-size:.95rem;color:var(--acc)}.tree .panel p{margin:.4rem 0}
-.empty{padding:2rem;text-align:center;color:var(--mut);border:1px dashed var(--line);border-radius:10px;background:var(--surf)}
-.err{padding:2rem;text-align:center;color:var(--no)}
+.tree details.yr{background:none;box-shadow:none;border-radius:0;margin:0}.yr>summary{padding:.5rem 0;font:600 1.35rem "Source Serif 4",serif}.yr[open]>summary{border:0}
+.in{margin-left:.45rem;padding-left:1.3rem;border-left:2px solid var(--line)}
+.mh{font-size:.78rem;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin:.9rem 0 .4rem}
+.mt{position:relative}.mt::before{content:"";position:absolute;left:-1.3rem;top:1.35rem;width:1.3rem;border-top:2px solid var(--line)}
+.mt::after{content:"";position:absolute;left:calc(-1.3rem - 5px);top:calc(1.35rem - 4px);width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.sum{display:flex;gap:.6rem;flex-wrap:wrap}.sum div{background:var(--surf);box-shadow:var(--sh);border-radius:12px;padding:.6rem 1.1rem;min-width:7.5rem}.sum b{display:block;font:600 1.6rem "Source Serif 4",serif}.sum span{font-size:.85rem;color:var(--mut)}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}.tools input{flex:1 1 14rem}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap}.chip{border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:99px;padding:.2rem .9rem;font:inherit;font-size:.88rem;cursor:pointer}.chip[aria-pressed=true]{background:var(--acc);color:var(--surf);border-color:var(--acc)}
+.empty{padding:2rem;text-align:center;color:var(--mut);border:1px dashed var(--line);border-radius:12px;background:var(--surf)}
+.errbox{background:var(--nobg);color:var(--no);border:1px solid var(--no);border-left:6px solid var(--no);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1rem}
+.errbox pre{background:rgba(0,0,0,.06);border-radius:8px;padding:.6rem .8rem;overflow:auto;font-size:.85rem;white-space:pre-wrap;color:var(--ink)}.errbox .hl{background:rgba(214,48,48,.25);display:block}.errbox small{opacity:.8}
 footer{text-align:center;color:var(--mut);font-size:.85rem;padding:2rem 1rem}
-.info{background:var(--accbg);border-left:5px solid var(--acc);border-radius:8px;padding:1.1rem 1.3rem;margin:1.2rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem 2rem}
-.info dt{font-weight:600;color:var(--acc);font-size:.9rem}.info dd{margin:0}
-.h2s{font-size:1.4rem;margin:2.2rem 0 .8rem}
-.pend.board{margin:1.5rem 0}.pend.board h3{font-size:1.2rem}
-.sum.wide div{background:var(--surf);border:1px solid var(--line);flex:0 1 8rem}
-.notes{background:var(--surf);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:8px;padding:1.1rem 1.3rem;margin-top:2rem}
-.notes h2{font-size:1.2rem;margin:0 0 .5rem}.notes ul{list-style:none;margin:.8rem 0;padding:0}
-.notes li{padding:.5rem 0;border-top:1px solid var(--line);display:flex;gap:.7rem;flex-wrap:wrap;justify-content:space-between}
-.alert{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;background:rgba(242,183,5,.14);border:1px solid rgba(242,183,5,.5);border-left:5px solid var(--gold);border-radius:10px;padding:1rem 1.3rem;margin:1.2rem 0}
-.alert.soon{background:rgba(242,183,5,.26);border-color:var(--gold)}
-.alert .adate{background:var(--navy);color:#fff;border-radius:8px;padding:.4rem .9rem;text-align:center;line-height:1.1;min-width:4rem}
-.alert .adate b{display:block;font:600 1.8rem "Source Serif 4",serif}.alert .adate span{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
-.alert h3{font-size:1.1rem}.alert p{margin:.15rem 0}.alert .go{margin-left:auto;font-weight:500}
-.calbar{display:flex;align-items:center;gap:.6rem;margin:1rem 0}.calbar h2{flex:1;text-transform:capitalize;font-size:1.3rem}
-.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
-.dh{text-align:center;font-size:.75rem;color:var(--mut);text-transform:uppercase;padding:.3rem 0}
-.cd{min-width:0;overflow:hidden;font:inherit;background:var(--surf);border:1px solid var(--line);border-radius:8px;min-height:5.6rem;padding:.35rem;text-align:left;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink)}
-.cd:hover{border-color:var(--acc)}.cd.sel{outline:2px solid var(--acc)}.cd.today>span{background:var(--navy);color:#fff;border-radius:99px;padding:0 .45rem;align-self:flex-start}
-.cd em{display:flex;flex-direction:column;gap:2px;font-style:normal;min-width:0;width:100%;margin-top:.25rem}.c0{min-height:5.6rem}
-.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;flex:none;margin-top:.35rem}
-.t-reuniao{background:var(--acc)}.t-prazo{background:#d99a00}.t-marco{background:#2e9e5b}.t-evento{background:#8a96a8}
-.ev{display:flex;gap:.7rem;padding:.6rem 0;border-top:1px solid var(--line)}.ev:first-child{border-top:0}.ev p{margin:.1rem 0}.dim{opacity:.55}
-
-.leg{display:flex;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:var(--mut);margin:.8rem 0}.leg .dot{margin:0 .3rem 0 0;vertical-align:middle}
-
-.ch{display:block;font-size:.72rem;line-height:1.3;padding:.05rem .35rem;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500;max-width:100%}
-.k-prazo{background:rgba(217,154,0,.22);color:#7a5200}:root.dark .k-prazo{color:#f1cc72}
-.k-marco{background:var(--okbg);color:var(--ok)}.k-evento{background:var(--line);color:var(--mut)}
-.ch.k-late{background:rgba(214,48,48,.2);color:#b71c1c;font-weight:700}:root.dark .ch.k-late{color:#ff9a9a}
-.more{font-size:.72rem;color:var(--mut)}
-.prio{align-items:center}.prio .pb{flex:1;min-width:0}.prio .pb p{margin:.1rem 0}
-.prio .ind{font-size:.85rem;font-weight:600;padding:.15rem .75rem;border-radius:99px;background:var(--accbg);color:var(--acc);white-space:nowrap}
-.prio.soon{background:rgba(217,154,0,.10);border-radius:6px;padding-left:.6rem;padding-right:.6rem}
-.prio.soon .ind{background:rgba(217,154,0,.25);color:#7a5200}:root.dark .prio.soon .ind{color:#f1cc72}
-.prio.late,.prio.late .meta{color:#c62828;font-weight:700}.prio.late{font-size:1.2rem;background:rgba(214,48,48,.09);border-radius:6px;padding-left:.6rem;padding-right:.6rem}
-.prio.late .ind{background:#c62828;color:#fff;font-size:1rem}
-:root.dark .prio.late,:root.dark .prio.late .meta{color:#ff9a9a}:root.dark .prio.late .ind{background:#ff9a9a;color:#3b0a0a}
-.evx.late b{color:#c62828}:root.dark .evx.late b{color:#ff9a9a}
-@media(max-width:40rem){.cd{min-height:3.4rem;padding:.25rem}.c0{min-height:3.4rem}.cd em{flex-direction:row;flex-wrap:wrap}
- .ch{font-size:0;width:.6rem;height:.6rem;padding:0;border-radius:50%;display:inline-block}
- .ch.k-reuniao{background:var(--acc)}.ch.k-prazo{background:#d99a00}.ch.k-marco{background:#2e9e5b}.ch.k-evento{background:#8a96a8}.ch.k-late{background:#d63030}.more{display:none}}
-.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}:root.dark .btn.pri{color:#06182e}.btn.pri:hover{filter:brightness(1.1)}
-.btn.sm{padding:.25rem .8rem;font-size:.85rem}
-.acts{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
-body:not(.owner) [data-act],body:not(.owner) [data-edit],body:not(.owner) [data-done],body:not(.owner) .acts{display:none!important}
-.owner #lock{background:rgba(242,183,5,.18);color:#fff;border-color:var(--gold)}#lock{white-space:nowrap}
-input[type=checkbox]{width:auto}
-dialog{border:0;border-radius:14px;padding:1.5rem;width:min(38rem,94vw);max-height:92vh;background:var(--surf);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-dialog::backdrop{background:rgba(7,20,38,.6)}dialog h2{margin:0 0 1rem}
-dialog label{display:block;font-weight:500;font-size:.9rem;margin:.8rem 0 .25rem}dialog small{color:var(--mut);font-weight:400}
-dialog label.inl{display:flex;gap:.5rem;align-items:center}
-.row{display:flex;gap:.6rem;justify-content:flex-end;margin-top:1.2rem;flex-wrap:wrap}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-.ci{display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem}.ci input[type=text]{flex:1;width:auto}.ci input[type=checkbox]{width:1.2rem;height:1.2rem;accent-color:var(--acc);flex:none}.ci .x{padding:.3rem .7rem}
-#toast{position:fixed;left:50%;bottom:1.2rem;transform:translate(-50%,200%);background:var(--navy);color:#fff;border:1px solid var(--gold);padding:.7rem 1.1rem;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.35);z-index:50;max-width:min(34rem,92vw);font-size:.95rem;transition:transform .25s}
-#toast.show{transform:translate(-50%,0)}#toast.err2{border-color:#ff9a9a}
 </style>
 </head>
 <body>
-<header class="top"><div class="bar">
-  <a class="brand" href="#inicio"><span class="plate"><img src="logo-ence.png" alt="ENCE" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fb',textContent:'ENCE'}))"></span><span id="brand">Tese de doutorado</span></a>
-  <nav aria-label="Principal"><a href="#inicio" data-v="inicio">Início</a><a href="#reunioes" data-v="reunioes">Reuniões</a><a href="#calendario" data-v="calendario">Calendário</a><a href="#rsl" data-v="rsl">Revisão sistemática</a><a href="#lacunas" data-v="lacunas">Lacunas</a></nav>
-  <button class="btn" id="lock">Modo editor</button><button class="btn" id="theme" aria-label="Alternar tema claro e escuro">Tema</button>
+<header class="hero"><div class="wrap">
+  <div class="top"><span class="plate"><img src="logo-ence.png" alt="ENCE" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fb',textContent:'ENCE'}))"></span><span class="brand" id="brand">Tese de doutorado</span><button class="tbtn" id="theme" aria-label="Alternar tema claro e escuro">Tema</button></div>
+  <h1 id="h1">Tese de doutorado</h1><p class="tema" id="tema"></p><p class="lead" id="lead"></p>
 </div></header>
-<main id="app" aria-live="polite"></main>
+<div class="wrap"><dl class="info" id="info"></dl></div>
+<nav class="tabs" aria-label="Seções"><div class="wrap"><a href="#reunioes" data-v="reunioes">Reuniões</a><a href="#rsl" data-v="rsl">Revisão sistemática</a><a href="#lacunas" data-v="lacunas">Lacunas</a></div></nav>
+<main class="wrap" id="app" aria-live="polite"></main>
 <footer id="foot"></footer>
-<dialog id="dlg"></dialog>
-<div id="toast" role="status"></div>
 <script>
-const $=s=>document.querySelector(s),app=$('#app'),D={};
+const $=s=>document.querySelector(s),app=$('#app');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const fmt=d=>d?new Date(d+'T12:00:00').toLocaleDateString('pt-BR'):'';
 const fmtL=d=>d?new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{day:'numeric',month:'long',year:'numeric'}):'';
 const cut=(s,n)=>s.length>n?s.slice(0,n).trimEnd()+'…':s;
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const bad=(f,html)=>{const e=new Error(f);e.html=html;return e};
 /*LOAD*/
-async function load(k,f){if(!D[k]){const r=await fetch(f);if(!r.ok)throw new Error('Não foi possível ler o arquivo '+f+'. Confira se ele está no repositório, na mesma pasta do index.html, e se você abriu o endereço do GitHub Pages (veja o README).');D[k]=await r.json()}return D[k]}
+const C={};
+async function getJSON(f){if(C[f])return C[f];let r;
+  try{r=await fetch(f+'?t='+Date.now(),{cache:'no-store'})}catch(e){throw bad(f,`Não foi possível buscar <b>${f}</b>. Abra o site pelo endereço do GitHub Pages, e não o arquivo salvo no computador.`)}
+  if(!r.ok)throw bad(f,`O arquivo <b>${f}</b> não foi encontrado (erro ${r.status}). Ele precisa estar na mesma pasta do index.html, com este nome exato, sem espaços nem “(1)”.`);
+  const t=await r.text();
+  try{C[f]=JSON.parse(t)}catch(e){const m=/line (\d+)/.exec(e.message),ln=m?+m[1]:0,L=t.split('\n');let sn='';
+    if(ln)for(let i=Math.max(1,ln-3);i<=Math.min(L.length,ln+2);i++)sn+=`<span class="${i===ln?'hl':''}">${String(i).padStart(3)}  ${esc(L[i-1])}</span>`;
+    throw bad(f,`O arquivo <b>${f}</b> tem um erro de pontuação${ln?' perto da linha '+ln:''}.${sn?'<pre>'+sn+'</pre>':''}<p>Confira: toda linha de uma lista termina com vírgula, menos a última; não pode haver ] ou } sobrando; as aspas precisam estar fechadas. Valide o texto em jsonlint.com.</p><small>${esc(e.message)}</small>`)}
+  return C[f]}
 /*END*/
+const MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const links=t=>esc(t).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+const tags=t=>(t||[]).map(x=>`<span class="tag">#${esc(x)}</span>`).join('');
 const SL={incluido:['Incluído','b-ok'],excluido:['Excluído','b-no'],analise:['Em análise','b-wip']};
 const sk=s=>{const n=norm(s);return n.includes('inclu')?'incluido':n.includes('exclu')?'excluido':'analise'};
 const LS={identificada:['Identificada','b-id'],exploracao:['Em exploração','b-wip'],questao:['Virou questão de pesquisa','b-ok'],descartada:['Descartada','b-no']};
-const lk=s=>{const n=norm(s);return n.includes('explor')?'exploracao':n.includes('quest')?'questao':n.includes('descart')?'descartada':'identificada'};
+const lkey=s=>{const n=norm(s);return n.includes('explor')?'exploracao':n.includes('quest')?'questao':n.includes('descart')?'descartada':'identificada'};
 const bd=(M,k)=>`<span class="badge ${M[k][1]}">${M[k][0]}</span>`;
-const tags=t=>(t||[]).map(x=>`<span class="tag">#${esc(x)}</span>`).join('');
-const load4=()=>Promise.all([load('s','site.json'),load('m','reunioes.json'),load('r','rsl.json'),load('l','lacunas.json'),load('c','prazos.json').catch(()=>(D.c=[]))]);
-const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50)||'x';
-function keys(){const u=new Set(),mk=(x,b)=>{let k=slug(x.id||b),n=k,i=2;while(u.has(n))n=k+'-'+i++;u.add(n);x.k=n};D.m.forEach(x=>mk(x,x.data+'-'+(x.titulo||'')));D.l.forEach(x=>mk(x,(x.data||'')+'-'+x.titulo));(D.r.estudos||[]).forEach(x=>mk(x,(x.leitura||x.ano||'')+'-'+x.titulo));(D.c||[]).forEach(x=>mk(x,x.data+'-'+x.titulo))}
 const byDate=a=>[...a].sort((x,y)=>(y.data||'').localeCompare(x.data||''));
-const title=x=>x.titulo||'Reunião de orientação de '+fmt(x.data);
+const title=x=>x.titulo||'Reunião de '+fmt(x.data);
 const pendN=x=>(x.encaminhamentos||[]).filter(e=>!e.feito).length;
-const todo=x=>x.encaminhamentos?.length?`<h4>Encaminhamentos</h4><ul class="todo">${x.encaminhamentos.map(e=>`<li class="${e.feito?'done':''}"><span class="box">${e.feito?'✓':''}</span><span>${esc(e.texto)}</span></li>`).join('')}</ul>`:'';
-const card=(t,x)=>{const r=t==='reuniao',n=r?pendN(x):0,ex=r?(x.anotacoes?.[0]||x.encaminhamentos?.[0]?.texto||''):(x.descricao||'');
-  return `<article class="post"><div class="pm"><span class="kind k-${t}">${r?'Reunião de orientação':'Lacuna de pesquisa'}</span><time>${fmtL(x.data)}</time>${r?(n?`<span class="badge b-pend">${n} ${n>1?'pendentes':'pendente'}</span>`:''):bd(LS,lk(x.status))}</div>
-  <h2><a href="#${t}-${x.k}">${esc(r?title(x):x.titulo)}</a></h2>${ex?`<p class="ex">${esc(cut(ex,220))}</p>`:''}
-  <div class="pf"><span>${tags(x.tags)}</span><span><a href="#${t}-${x.k}">Ler publicação →</a> <button class="btn sm" data-edit="${t}" data-k="${x.k}">Editar</button></span></div></article>`};
+const todo=x=>x.encaminhamentos?.length?`<h4>Encaminhamentos</h4><ul class="todo">${x.encaminhamentos.map(e=>`<li class="${e.feito?'done':''}"><span class="box">${e.feito?'✓':''}</span><span>${links(e.texto)}</span></li>`).join('')}</ul>`:'';
+let S={},SERR=null;
+const serr=()=>SERR?`<div class="errbox">${SERR.html||esc(SERR.message)}</div>`:'';
+const need=(f,a,msg)=>{if(!a)throw bad(f,`O arquivo <b>${f}</b> está com a estrutura errada: ${msg}`);return a};
 
-const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-const todayI=()=>iso(new Date());
-const dd=(a,b)=>Math.round((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/864e5);
-const isMeet=(s,d)=>!!s.proximaReuniao&&dd(d,s.proximaReuniao)>=0&&dd(d,s.proximaReuniao)%(s.frequenciaDias||14)===0&&!(s.pularReunioes||[]).includes(d);
-const nextMeets=(s,n)=>{const o=[];for(let i=0;i<500&&o.length<n;i++){const t=new Date();t.setDate(t.getDate()+i);const k=iso(t);if(isMeet(s,k))o.push(k)}return o};
-const when=n=>n===0?'hoje':n===1?'amanhã':n>0?'em '+n+' dias':'há '+(-n)+' dias';
-function alertCard(s){const k=nextMeets(s,1)[0];if(!k)return '';const d=dd(k,todayI()),dt=new Date(k+'T12:00:00'),f=s.frequenciaDias||14;
-  return `<section class="alert${d<=3?' soon':''}" role="status"><div class="adate"><b>${dt.getDate()}</b><span>${MES[dt.getMonth()].slice(0,3)}</span></div>
-  <div><h3>Próxima reunião de orientação</h3><p>${dt.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})} · <b>${when(d)}</b>${s.horario?' · '+esc(s.horario):''}${s.local?' · '+esc(s.local):''}</p>
-  <p class="meta">Reuniões ${f===14?'quinzenais, a cada 14 dias':'a cada '+f+' dias'}.</p></div><a class="go" href="#calendario">Ver calendário</a></section>`}
-async function inicio(){
-  const [s,m,r,L]=await load4(),E=r.estudos,last=byDate(m)[0],top=byDate(L).slice(0,3);
-  const pend=byDate(m).flatMap(x=>(x.encaminhamentos||[]).filter(e=>!e.feito).map(e=>({x,t:e.texto})));
-  const info=[['Doutoranda',s.doutoranda],['Orientadora',s.orientadora],['Coorientadora',s.coorientadora],['Instituição',s.instituicao],['Programa',s.programa]].filter(i=>i[1]);
-  app.innerHTML=`<section class="cover"><img src="banner.png" alt="" onerror="this.remove()"><div class="cover-t"><h1>${esc(s.titulo)}</h1><p class="tema">${esc(s.tema)}</p></div></section>
-  ${alertCard(s)}
-  <dl class="info">${info.map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
-  ${s.resumo?`<p class="meta" style="max-width:68ch">${esc(s.resumo)}</p>`:''}
-  <div class="acts"><button class="btn pri" data-act="reuniao">Novo registro de reunião</button><button class="btn" data-act="artigo">Incluir artigo na RSL</button><button class="btn" data-act="lacuna">Incluir nova lacuna de pesquisa</button><button class="btn" data-act="prazo">Novo prazo ou evento</button><button class="btn" data-act="site">Editar dados do blog</button></div>
-  <section class="pend board" aria-label="Quadro de pendências"><h3>Quadro de pendências <span class="cnt">${pend.length}</span></h3>${pend.length?`<ul>${pend.map(p=>`<li><span class="box"></span><a href="#reuniao-${p.x.k}"><span>${esc(p.t)}</span><small>Reunião de ${fmt(p.x.data)}</small></a></li>`).join('')}</ul>`:'<p>Nenhuma pendência. Todos os encaminhamentos estão concluídos.</p>'}</section>
-  <h2 class="h2s">Registro de reuniões</h2>
-  ${last?`<div class="w"><h3>${esc(title(last))}</h3><p class="meta">${fmtL(last.data)}</p>${(last.anotacoes||[]).map(p=>`<p>${esc(p)}</p>`).join('')}${todo(last)}<p><a href="#reuniao-${last.k}">Abrir como publicação →</a> <button class="btn sm" data-edit="reuniao" data-k="${last.k}">Editar</button></p></div>`:'<div class="empty">Nenhuma reunião registrada ainda.</div>'}
-  <p><a href="#reunioes">Ver todas as ${m.length} reuniões</a></p>
-  <h2 class="h2s">Controle da revisão sistemática</h2>
-  <div class="sum wide">${[['',E.length,'artigos'],...Object.keys(SL).map(k=>[k,E.filter(e=>sk(e.status)===k).length,SL[k][0].toLowerCase()+'s'])].map(x=>`<div><b>${x[1]}</b><span>${x[2]}</span></div>`).join('')}</div>
-  <p><a href="#rsl">Abrir o controle da revisão</a></p>
-  <aside class="notes" aria-label="Anotações sobre lacunas de pesquisa"><h2>Anotações: possíveis lacunas de pesquisa</h2><ul>${top.map(x=>`<li><a href="#lacuna-${x.k}">${esc(x.titulo)}</a>${bd(LS,lk(x.status))}</li>`).join('')}</ul><a href="#lacunas">Ver todas as lacunas</a></aside>`;
-}
+function nextMeet(s){if(!s.proximaReuniao)return null;const st=s.frequenciaDias||14,skip=s.pularReunioes||[],t=new Date();t.setHours(0,0,0,0);
+  const d=new Date(s.proximaReuniao+'T12:00:00');d.setHours(0,0,0,0);for(let i=0;i<800;i++){if(d>=t&&!skip.includes(iso(d)))return d;d.setDate(d.getDate()+st)}return null}
+function alertCard(s){const d=nextMeet(s);if(!d)return '';const t=new Date();t.setHours(0,0,0,0);const n=Math.round((d-t)/864e5),f=s.frequenciaDias||14;
+  const w=n===0?'hoje':n===1?'amanhã':'em '+n+' dias';
+  return `<section class="alert${n<=3?' soon':''}" role="status"><div class="adate"><b>${d.getDate()}</b><span>${MES[d.getMonth()].slice(0,3)}</span></div><div><h3>Próxima reunião de orientação</h3>
+  <p>${d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})} · <b>${w}</b>${s.horario?' · '+esc(s.horario):''}${s.local?' · '+esc(s.local):''}</p>
+  <p class="meta">Reuniões ${f===14?'quinzenais, a cada 14 dias':'a cada '+f+' dias'}.</p></div></section>`}
 
-const MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 async function reunioes(){
-  const m=byDate(D.m);
-  app.innerHTML=`<div class="head"><h1>Registro de reuniões</h1><p class="meta" style="max-width:60ch">Linha do tempo das orientações, da mais recente para a mais antiga. Abra o ano, clique na reunião e leia o que foi discutido e combinado.</p><div class="acts"><button class="btn pri" data-act="reuniao">Novo registro de reunião</button></div></div>
-  <input type="search" id="q" placeholder="Buscar em todas as reuniões" aria-label="Buscar reuniões"><div class="tree" id="tree"></div>`;
+  const j=await getJSON('reunioes.json'),m=byDate(need('reunioes.json',Array.isArray(j)&&j,'ele deve começar com [ e ser uma lista de reuniões.'));
+  const pend=m.flatMap(x=>(x.encaminhamentos||[]).filter(e=>!e.feito).map(e=>({x,t:e.texto})));
+  app.innerHTML=`${serr()}${alertCard(S)}
+  <section class="pend" aria-label="Quadro de pendências"><h3>Quadro de pendências <span class="cnt">${pend.length}</span></h3>${pend.length?`<ul>${pend.map(p=>`<li><span class="box"></span><div><span>${links(p.t)}</span><small>${esc(title(p.x))} · ${fmt(p.x.data)}</small></div></li>`).join('')}</ul>`:'<p>Nenhuma pendência. Todos os encaminhamentos estão concluídos.</p>'}</section>
+  <div class="sechead"><div><h2>Registro de reuniões</h2><p class="meta">Da mais recente para a mais antiga. Clique em uma reunião para abrir.</p></div><input type="search" id="q" placeholder="Buscar nas reuniões" aria-label="Buscar nas reuniões"></div>
+  <div class="tree" id="tree"></div>`;
   const draw=()=>{const q=norm($('#q').value),rows=m.filter(x=>!q||norm(JSON.stringify(x)).includes(q));
-    if(!rows.length){$('#tree').innerHTML='<div class="empty" style="margin-top:1rem">Nenhuma reunião encontrada. Limpe a busca.</div>';return}
-    const by={};rows.forEach(x=>{const [y,mo]=x.data.split('-');((by[y]??={})[mo]??=[]).push(x)});
+    if(!rows.length){$('#tree').innerHTML='<div class="empty">Nenhuma reunião encontrada. Limpe a busca.</div>';return}
+    const by={};rows.forEach(x=>{const [y,mo]=String(x.data).split('-');((by[y]??={})[mo]??=[]).push(x)});
     $('#tree').innerHTML=Object.keys(by).sort().reverse().map((y,yi)=>{const n=Object.values(by[y]).flat().length;
       return `<details class="yr" ${yi===0||q?'open':''}><summary>${y} <span class="meta" style="font:400 .9rem 'IBM Plex Sans',sans-serif">${n} ${n>1?'reuniões':'reunião'}</span></summary><div class="in">`+
-      Object.keys(by[y]).sort().reverse().map(mo=>`<h4 class="mh">${MES[+mo-1]}</h4>`+by[y][mo].map(x=>{
-        const lbl=x.titulo||(x.anotacoes?.[0]||'Sem título'),pn=pendN(x);
-        return `<details class="mt" ${x===rows[0]||q?'open':''}><summary><span class="date">${fmt(x.data)}</span><span class="t">${esc(cut(lbl,80))}</span>${pn?`<span class="badge b-pend">${pn} ${pn>1?'pendentes':'pendente'}</span>`:''}</summary>
-        <div class="panel">${(x.anotacoes||[]).map(p=>`<p>${esc(p)}</p>`).join('')}${todo(x)}<p>${tags(x.tags)} <a href="#reuniao-${x.k}">Abrir como publicação →</a> <button class="btn sm" data-edit="reuniao" data-k="${x.k}">Editar</button></p></div></details>`}).join('')).join('')+`</div></details>`}).join('')};
+      Object.keys(by[y]).sort().reverse().map(mo=>`<h4 class="mh">${MES[+mo-1]||mo}</h4>`+by[y][mo].map(x=>{const pn=pendN(x);
+        return `<details class="mt" ${x===rows[0]||q?'open':''}><summary><span class="date">${fmt(x.data)}</span><span class="t">${esc(cut(title(x),80))}</span>${pn?`<span class="badge b-pend">${pn} ${pn>1?'pendentes':'pendente'}</span>`:''}</summary>
+        <div class="body">${(x.anotacoes||[]).map(p=>`<p>${links(p)}</p>`).join('')}${todo(x)}<p>${tags(x.tags)}${x.link?` <a href="${esc(x.link)}" target="_blank" rel="noopener">Abrir ata</a>`:''}</p></div></details>`}).join('')).join('')+`</div></details>`}).join('')};
   $('#q').oninput=draw;draw();
 }
 
 async function rsl(){
-  const r=D.r,E=r.estudos;
-  app.innerHTML=`<div class="head"><h1>Controle da revisão sistemática</h1><p class="meta" style="max-width:60ch">${esc(r.pergunta||'')}</p><div class="acts"><button class="btn pri" data-act="artigo">Incluir artigo na RSL</button></div></div>
+  const r=await getJSON('rsl.json'),E=need('rsl.json',Array.isArray(r.estudos)&&r.estudos,'falta a lista "estudos".');
+  app.innerHTML=`${serr()}<div class="sechead"><div><h2>Controle da revisão sistemática</h2><p class="meta" style="max-width:60ch">${esc(r.pergunta||'')}</p></div></div>
+  <div class="sum">${[['',E.length,'artigos'],...Object.keys(SL).map(k=>[k,E.filter(e=>sk(e.status)===k).length,SL[k][0].toLowerCase()+'s'])].map(x=>`<div><b>${x[1]}</b><span>${x[2]}</span></div>`).join('')}</div>
   <div class="tools"><input type="search" id="q" placeholder="Buscar por título, autor ou palavra-chave" aria-label="Buscar artigos"><select id="fs" aria-label="Status"><option value="">Todos os status</option>${Object.keys(SL).map(k=>`<option value="${k}">${SL[k][0]}</option>`).join('')}</select><button class="btn" id="csv">Baixar CSV</button></div>
   <p class="meta" id="cnt"></p><div id="list"></div>`;
   let rows=[];const draw=()=>{const q=norm($('#q').value),s=$('#fs').value;
@@ -247,8 +152,8 @@ async function rsl(){
     $('#cnt').textContent=rows.length+' de '+E.length+' artigos';
     $('#list').innerHTML=rows.length?rows.map(e=>`<details><summary><span class="date">${fmt(e.leitura)||e.ano||''}</span><span class="t">${esc(e.titulo)}</span>${bd(SL,sk(e.status))}</summary><div class="body">
       <p>${esc(e.autores)}${e.veiculo?'. <em>'+esc(e.veiculo)+'</em>':''}${e.ano?' ('+esc(e.ano)+')':''}</p>
-      ${e.resumo?`<h4>Resumo</h4><p>${esc(e.resumo)}</p>`:''}${e.motivo?`<h4>Decisão e notas</h4><p>${esc(e.motivo)}</p>`:''}
-      <p>${tags(e.tags)}${e.doi?` <a href="https://doi.org/${esc(e.doi)}" target="_blank" rel="noopener">Abrir DOI</a>`:''}</p><p><button class="btn sm" data-edit="artigo" data-k="${e.k}">Editar artigo</button></p></div></details>`).join('')
+      ${e.resumo?`<h4>Resumo</h4><p>${esc(e.resumo)}</p>`:''}${e.motivo?`<h4>Decisão e notas</h4><p>${links(e.motivo)}</p>`:''}
+      <p>${tags(e.tags)}${e.doi?` <a href="https://doi.org/${esc(e.doi)}" target="_blank" rel="noopener">Abrir DOI</a>`:''}</p></div></details>`).join('')
       :'<div class="empty">Nenhum artigo registrado ainda. Inclua os artigos em rsl.json.</div>'};
   $('#q').oninput=draw;$('#fs').oninput=draw;
   $('#csv').onclick=()=>{const h=['leitura','ano','titulo','autores','veiculo','doi','status','motivo','tags'],c=v=>'"'+String(Array.isArray(v)?v.join('; '):v??'').replace(/"/g,'""')+'"';
@@ -257,195 +162,33 @@ async function rsl(){
 }
 
 async function lacunas(){
-  const L=byDate(D.l);let f='';
-  app.innerHTML=`<div class="head"><h1>Lacunas de pesquisa</h1><p class="meta" style="max-width:60ch">Anotações em construção sobre o que a literatura ainda não responde.</p><div class="acts"><button class="btn pri" data-act="lacuna">Incluir nova lacuna de pesquisa</button></div></div>
-  <div class="chips" id="chips">${['',...Object.keys(LS)].map(k=>`<button class="chip" aria-pressed="${k===''}" data-k="${k}">${k?LS[k][0]:'Todas'}</button>`).join('')}</div><div id="list"></div>`;
-  const draw=()=>{const rows=L.filter(x=>!f||lk(x.status)===f);$('#list').innerHTML=rows.length?rows.map(x=>card('lacuna',x)).join(''):'<div class="empty">Nenhuma lacuna com este status.</div>'};
+  const j=await getJSON('lacunas.json'),L=byDate(need('lacunas.json',Array.isArray(j)&&j,'ele deve começar com [ e ser uma lista de lacunas.'));let f='';
+  app.innerHTML=`${serr()}<div class="sechead"><div><h2>Lacunas de pesquisa</h2><p class="meta" style="max-width:60ch">Anotações em construção sobre o que a literatura ainda não responde.</p></div></div>
+  <div class="chips" id="chips" style="margin-bottom:1rem">${['',...Object.keys(LS)].map(k=>`<button class="chip" aria-pressed="${k===''}" data-k="${k}">${k?LS[k][0]:'Todas'}</button>`).join('')}</div><div id="list"></div>`;
+  const draw=()=>{const rows=L.filter(x=>!f||lkey(x.status)===f);
+    $('#list').innerHTML=rows.length?rows.map((x,i)=>`<details ${i===0&&!f?'open':''}><summary><span class="date">${fmt(x.data)}</span><span class="t">${esc(x.titulo)}</span>${bd(LS,lkey(x.status))}</summary><div class="body">
+      ${x.descricao?`<h4>Anotação</h4><p>${links(x.descricao)}</p>`:''}${x.evidencias?.length?`<h4>Onde apareceu</h4><ul>${x.evidencias.map(e=>`<li>${links(e)}</li>`).join('')}</ul>`:''}
+      ${x.proximo?`<h4>Próximo passo</h4><p>${links(x.proximo)}</p>`:''}<p>${tags(x.tags)}</p></div></details>`).join(''):'<div class="empty">Nenhuma lacuna com este status.</div>'};
   $('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;f=b.dataset.k;document.querySelectorAll('#chips .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));draw()};
   draw();
 }
 
-function post(kind,k){
-  const r=kind==='reuniao',all=byDate(r?D.m:D.l),i=all.findIndex(x=>x.k===k),x=all[i];
-  if(!x){app.innerHTML='<div class="empty">Publicação não encontrada. <a href="#inicio">Voltar ao início</a></div>';return}
-  document.title=(r?title(x):x.titulo)+' | '+(D.s.nomeBlog||'');
-  const nw=all[i-1],ol=all[i+1],lk2=y=>`#${kind}-${y.k}`,nm=y=>esc(cut(r?title(y):y.titulo,48));
-  const paras=r?x.anotacoes||[]:[x.descricao].filter(Boolean);
-  app.innerHTML=`<a class="back" href="#${r?'reunioes':'lacunas'}">← ${r?'Todas as reuniões':'Todas as lacunas'}</a>
-  <article class="art"><div class="pm"><span class="kind k-${kind}">${r?'Reunião de orientação':'Lacuna de pesquisa'}</span><time>${fmtL(x.data)}</time>${r?'':bd(LS,lk(x.status))}</div>
-  <h1>${esc(r?title(x):x.titulo)}</h1>
-  ${paras.map((p,j)=>`<p class="${j?'':'lead'}">${esc(p)}</p>`).join('')}
-  ${r?todo(x):`${x.evidencias?.length?`<h4>Onde apareceu</h4><ul>${x.evidencias.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>`:''}${x.proximo?`<h4>Próximo passo</h4><p>${esc(x.proximo)}</p>`:''}`}
-  <hr><p style="font-size:.95rem">${tags(x.tags)}${x.link?` <a href="${esc(x.link)}" target="_blank" rel="noopener">Abrir ata completa</a>`:''}</p><p><button class="btn sm" data-edit="${kind}" data-k="${x.k}">Editar</button></p></article>
-  <div class="pn"><span>${ol?`<a href="${lk2(ol)}">← ${nm(ol)}</a>`:''}</span><span>${nw?`<a href="${lk2(nw)}">${nm(nw)} →</a>`:''}</span></div>`;
-}
-
-const DOW=['dom','seg','ter','qua','qui','sex','sáb'],TL={reuniao:'Reunião',prazo:'Prazo',marco:'Marco',evento:'Evento'};
-const isLate=x=>x.tipo!=='reuniao'&&x.tipo!=='evento'&&!x.concluido&&x.data<todayI();
-const evHtml=x=>`<div class="ev evx${isLate(x)?' late':''}"><span class="dot t-${x.tipo}"></span><div><b>${esc(x.titulo)}</b> <span class="badge b-id">${TL[x.tipo]||'Evento'}</span>${x.descricao?`<p class="meta">${esc(x.descricao)}</p>`:''}${x.href?`<p><a href="${x.href}">Ler o registro</a></p>`:''}${x.k&&x.tipo!=='reuniao'?`<div class="acts" style="margin:.3rem 0 0"><button class="btn sm" data-edit="prazo" data-k="${x.k}">Editar</button>${x.tipo!=='evento'?`<button class="btn sm" data-done="${x.k}">${x.concluido?'Reabrir':'Concluir'}</button>`:''}</div>`:''}</div></div>`;
-async function calendario(){
-  const s=D.s,C=[...(D.c||[])].sort((a,b)=>a.data.localeCompare(b.data)),td=todayI(),t=new Date();let y=t.getFullYear(),mo=t.getMonth(),sel=td;
-  const ev=d=>{const r=D.m.filter(x=>x.data===d).map(x=>({tipo:'reuniao',titulo:'Reunião realizada',descricao:x.titulo||'',href:'#reuniao-'+x.k})),
-    g=!r.length&&isMeet(s,d)?[{tipo:'reuniao',titulo:'Reunião de orientação',descricao:[s.horario,s.local].filter(Boolean).join(' · ')}]:[];
-    return [...r,...g,...C.filter(x=>x.data===d)]};
-  const row=x=>{const n=dd(x.data,td),L=isLate(x),dn=!!x.concluido,m=Math.abs(n),
-    ind=dn?'concluído':L?'atrasada há '+m+(m>1?' dias':' dia'):n===0?'vence hoje':n===1?'vence amanhã':'faltam '+n+' dias';
-    return `<div class="ev prio${L?' late':!dn&&n<=7?' soon':''}${dn?' dim':''}"><span class="dot t-${x.tipo}"></span><div class="pb"><b>${esc(x.titulo)}</b><p class="meta">${fmtL(x.data)}${x.descricao?' · '+esc(x.descricao):''}</p><div class="acts" style="margin:.3rem 0 0"><button class="btn sm" data-edit="prazo" data-k="${x.k}">Editar</button>${x.tipo!=='evento'?`<button class="btn sm" data-done="${x.k}">${dn?'Reabrir':'Concluir'}</button>`:''}</div></div><span class="ind">${ind}</span></div>`};
-  const act=C.filter(x=>!x.concluido&&(x.tipo!=='evento'||x.data>=td)),old=C.filter(x=>x.concluido||(x.tipo==='evento'&&x.data<td)).reverse(),nl=act.filter(isLate).length;
-  const chip=x=>`<b class="ch k-${x.tipo}${isLate(x)?' k-late':''}" title="${esc(x.titulo)}">${esc(x.tipo==='reuniao'?'Reunião':x.titulo)}</b>`;
-  app.innerHTML=`<div class="head"><h1>Calendário e cronograma</h1><p class="meta" style="max-width:62ch">Reuniões de orientação, prazos e marcos da pesquisa. Clique em um dia para ver os detalhes.</p><div class="acts"><button class="btn pri" data-act="prazo">Novo prazo ou evento</button><button class="btn" data-act="site">Editar próxima reunião</button></div></div>
-  <div class="calbar"><button class="btn" id="pv" aria-label="Mês anterior">←</button><h2 id="cm"></h2><button class="btn" id="hj">Hoje</button><button class="btn" id="nx" aria-label="Próximo mês">→</button></div>
-  <div class="cal" id="grid"></div>
-  <div class="leg"><span><i class="dot t-reuniao"></i>Reunião</span><span><i class="dot t-prazo"></i>Prazo</span><span><i class="dot t-marco"></i>Marco</span><span><i class="dot t-evento"></i>Evento</span></div>
-  <div id="day"></div>
-  <h2 class="h2s">Próximas reuniões</h2><div class="w">${nextMeets(s,3).map(k=>`<div class="ev"><span class="dot t-reuniao"></span><div><b>${fmtL(k)}</b><p class="meta">${when(dd(k,td))}</p></div></div>`).join('')||'<p class="meta">Defina proximaReuniao em site.json.</p>'}</div>
-  <h2 class="h2s">Atividades e prazos</h2><p class="meta">Da mais urgente para a menos urgente.${nl?` <b style="color:#c62828">${nl} ${nl>1?'atrasadas':'atrasada'}.</b>`:''}</p>${act.length?`<div class="w">${act.map(row).join('')}</div>`:'<div class="empty">Nenhuma atividade com prazo. Inclua os prazos em prazos.json.</div>'}
-  ${old.length?`<details><summary>Concluídos e passados (${old.length})</summary><div class="body">${old.map(row).join('')}</div></details>`:''}`;
-  const draw=()=>{const first=new Date(y,mo,1),days=new Date(y,mo+1,0).getDate();let c='';
-    for(let i=0;i<first.getDay();i++)c+='<span class="c0"></span>';
-    for(let d=1;d<=days;d++){const k=`${y}-${String(mo+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,e=ev(k);
-      c+=`<button class="cd${k===td?' today':''}${k===sel?' sel':''}" data-d="${k}" aria-label="${d} de ${MES[mo]}${e.length?', '+e.length+' evento(s)':''}"><span>${d}</span><em>${e.slice(0,2).map(chip).join('')}${e.length>2?`<b class="more">+${e.length-2}</b>`:''}</em></button>`}
-    $('#cm').textContent=MES[mo]+' de '+y;$('#grid').innerHTML=DOW.map(x=>`<span class="dh">${x}</span>`).join('')+c;
-    const e=ev(sel);$('#day').innerHTML=`<div class="w"><h3>${fmtL(sel)}</h3>${e.length?e.map(evHtml).join(''):'<p class="meta">Nada marcado neste dia.</p>'}</div>`};
-  $('#grid').onclick=e=>{const b=e.target.closest('[data-d]');if(b){sel=b.dataset.d;draw()}};
-  $('#pv').onclick=()=>{mo--;if(mo<0){mo=11;y--}draw()};$('#nx').onclick=()=>{mo++;if(mo>11){mo=0;y++}draw()};
-  $('#hj').onclick=()=>{y=t.getFullYear();mo=t.getMonth();sel=td;draw()};draw();
-}
-
-/* ===== modo editor: só quem tem escrita no repositório ===== */
-const lock=$('#lock'),dlg=$('#dlg');
-const FILE={reuniao:'reunioes.json',artigo:'rsl.json',lacuna:'lacunas.json',prazo:'prazos.json',site:'site.json'};
-const LST={reuniao:()=>D.m,artigo:()=>D.r.estudos,lacuna:()=>D.l,prazo:()=>D.c};
-const DOC={'reunioes.json':()=>D.m,'rsl.json':()=>D.r,'lacunas.json':()=>D.l,'prazos.json':()=>D.c,'site.json':()=>D.s};
-const json=f=>JSON.stringify(DOC[f](),(k,v)=>k==='k'||k==='modoDemo'?undefined:v,2);
-const repoOf=()=>D.s?.repo||(location.hostname.endsWith('.github.io')?location.hostname.split('.')[0]+'/'+(location.pathname.split('/')[1]||location.hostname):'');
-const tok=()=>{try{return localStorage.getItem('ghtoken')||''}catch(e){return''}};
-const GH=(p,tk,o={})=>fetch('https://api.github.com/repos/'+repoOf()+p,{...o,headers:{Authorization:'Bearer '+tk,Accept:'application/vnd.github+json'}});
-function setOwner(on){D.edit=on;document.body.classList.toggle('owner',on);lock.textContent=on?'Editor ativo · Sair':'Modo editor'}
-async function verify(tk){try{const r=await GH('',tk);if(r.status===401||r.status===403){try{localStorage.removeItem('ghtoken')}catch(e){}return false}const j=await r.json();return r.ok&&!!j.permissions?.push}catch(e){return false}}
-const dl=f=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([json(f)],{type:'application/json'}));a.download=f;a.click()};
-let tt;function toast(m,o={}){const t=$('#toast');t.innerHTML=esc(m)+(o.file?' <button class="btn sm" id="tdl">Baixar arquivo</button>':'');t.className='show'+(o.err?' err2':'');if(o.file)$('#tdl').onclick=()=>dl(o.file);clearTimeout(tt);tt=setTimeout(()=>t.className='',o.err?12000:6000)}
-async function save(f){
-  if(D.s.modoDemo)return 'demo';
-  const tk=tok(),repo=repoOf();
-  if(!tk||!repo)throw new Error('Token ou repositório não configurado. Entre novamente no Modo editor.');
-  const readError=async r=>{let j={};try{j=await r.json()}catch(e){}return j.message||('HTTP '+r.status)};
-  // Consulta os metadados para usar a branch padrão real do repositório.
-  let r=await GH('',tk);
-  if(!r.ok)throw new Error('Erro ao acessar o repositório: '+await readError(r));
-  const meta=await r.json();
-  const branch=D.s.branch||meta.default_branch;
-  if(!branch)throw new Error('Não foi possível identificar a branch padrão do repositório.');
-  // Recupera o SHA atual, necessário para atualizar um arquivo existente.
-  r=await GH('/contents/'+encodeURIComponent(f)+'?ref='+encodeURIComponent(branch),tk);
-  if(!r.ok)throw new Error('Erro ao localizar '+f+' na branch '+branch+': '+await readError(r));
-  const file=await r.json();
-  if(!file.sha)throw new Error('O GitHub não retornou o identificador SHA de '+f+'.');
-  r=await GH('/contents/'+encodeURIComponent(f),tk,{
-    method:'PUT',
-    body:JSON.stringify({
-      message:'Atualização pelo site: '+f,
-      branch,
-      sha:file.sha,
-      content:btoa(unescape(encodeURIComponent(json(f))))
-    })
-  });
-  if(!r.ok)throw new Error('Falha ao salvar '+f+': '+await readError(r));
-  return 'saved';
-}
-async function persist(kind){const f=FILE[kind];toast('Salvando no GitHub...');try{const r=await save(f);toast(r==='demo'?'Demonstração: a alteração vale só nesta visita.':'Salvo no GitHub. O site publicado atualiza em cerca de 1 minuto.')}catch(e){toast(e.message,{err:1,file:f})}}
-const lines=x=>x.split(/\n+/).map(y=>y.trim()).filter(Boolean),csvl=x=>x.split(',').map(y=>y.trim()).filter(Boolean);
-const J=a=>(a||[]).join('\n'),T=a=>(a||[]).join(', ');
-const F={
- reuniao:{t:'Novo registro de reunião',e:'Editar reunião',
-  html:()=>`<label for="a1">Data</label><input type="date" name="data" id="a1" required value="${todayI()}">
-  <label for="a2">Título <small>(opcional)</small></label><input name="titulo" id="a2">
-  <label for="a3">Anotações <small>(um parágrafo por linha)</small></label><textarea name="anot" id="a3" rows="4"></textarea>
-  <label id="lbl4">Encaminhamentos <small>(marque o que já foi feito)</small></label><div id="chk" role="group" aria-labelledby="lbl4"></div><button type="button" class="btn" id="addi">Adicionar item</button>
-  <label for="a5">Tags <small>(separadas por vírgula)</small></label><input name="tags" id="a5">
-  <label for="a6">Link da ata em PDF <small>(opcional)</small></label><input name="link" id="a6">`,
-  init(o){const box=$('#chk'),add=(g,e)=>{const d=document.createElement('div');d.className='ci';d.innerHTML='<input type="checkbox" aria-label="Item concluído"><input type="text" placeholder="Descreva o encaminhamento" aria-label="Encaminhamento"><button type="button" class="btn x" aria-label="Remover item">×</button>';box.append(d);if(e){d.querySelector('[type=checkbox]').checked=!!e.feito;d.querySelector('[type=text]').value=e.texto}if(g)d.querySelector('[type=text]').focus()};
-   $('#addi').onclick=()=>add(1);box.onclick=e=>{const x=e.target.closest('.x');if(x)x.closest('.ci').remove()};
-   box.onkeydown=e=>{if(e.key==='Enter'&&e.target.type==='text'){e.preventDefault();add(1)}};(o?.encaminhamentos?.length?o.encaminhamentos:[null]).forEach(e=>add(0,e))},
-  build:f=>({data:f.get('data'),titulo:f.get('titulo').trim(),anotacoes:lines(f.get('anot')),encaminhamentos:[...document.querySelectorAll('#chk .ci')].map(r=>({texto:r.querySelector('[type=text]').value.trim(),feito:r.querySelector('[type=checkbox]').checked})).filter(e=>e.texto),tags:csvl(f.get('tags')),link:f.get('link').trim()})},
- artigo:{t:'Incluir artigo na RSL',e:'Editar artigo da RSL',
-  html:()=>`<label for="b1">Título do artigo</label><input name="titulo" id="b1" required>
-  <label for="b2">Autores</label><input name="autores" id="b2">
-  <div class="g2"><div><label for="b3">Ano</label><input type="number" name="ano" id="b3" min="1900" max="2100"></div><div><label for="b4">Data de leitura</label><input type="date" name="leitura" id="b4" value="${todayI()}"></div></div>
-  <label for="b5">Veículo</label><input name="veiculo" id="b5"><label for="b6">DOI</label><input name="doi" id="b6" placeholder="10.0000/exemplo">
-  <label for="b7">Decisão</label><select name="status" id="b7"><option value="analise">Em análise</option><option value="incluido">Incluído</option><option value="excluido">Excluído</option></select>
-  <label for="b8">Justificativa e notas</label><textarea name="motivo" id="b8" rows="3"></textarea>
-  <label for="b9">Tags <small>(separadas por vírgula)</small></label><input name="tags" id="b9">`,
-  build:f=>({ano:+f.get('ano')||'',titulo:f.get('titulo').trim(),autores:f.get('autores').trim(),veiculo:f.get('veiculo').trim(),doi:f.get('doi').trim(),status:f.get('status'),leitura:f.get('leitura'),motivo:f.get('motivo').trim(),tags:csvl(f.get('tags'))})},
- lacuna:{t:'Incluir nova lacuna de pesquisa',e:'Editar lacuna de pesquisa',
-  html:()=>`<label for="c1">Título da lacuna</label><input name="titulo" id="c1" required placeholder="O que a literatura ainda não responde?">
-  <div class="g2"><div><label for="c2">Data</label><input type="date" name="data" id="c2" value="${todayI()}"></div><div><label for="c3">Status</label><select name="status" id="c3"><option value="identificada">Identificada</option><option value="em exploração">Em exploração</option><option value="virou questão de pesquisa">Virou questão de pesquisa</option><option value="descartada">Descartada</option></select></div></div>
-  <label for="c4">Anotação</label><textarea name="descricao" id="c4" rows="3"></textarea>
-  <label for="c5">Onde apareceu <small>(um por linha)</small></label><textarea name="evid" id="c5" rows="2"></textarea>
-  <label for="c6">Próximo passo</label><input name="proximo" id="c6">
-  <label for="c7">Tags <small>(separadas por vírgula)</small></label><input name="tags" id="c7">`,
-  build:f=>({data:f.get('data'),titulo:f.get('titulo').trim(),status:f.get('status'),descricao:f.get('descricao').trim(),evidencias:lines(f.get('evid')),proximo:f.get('proximo').trim(),tags:csvl(f.get('tags'))})},
- prazo:{t:'Novo prazo ou evento',e:'Editar prazo ou evento',
-  html:()=>`<label for="p1">Título</label><input name="titulo" id="p1" required>
-  <div class="g2"><div><label for="p2">Data</label><input type="date" name="data" id="p2" required value="${todayI()}"></div><div><label for="p3">Tipo</label><select name="tipo" id="p3"><option value="prazo">Prazo</option><option value="marco">Marco</option><option value="evento">Evento</option></select></div></div>
-  <label for="p4">Descrição <small>(opcional)</small></label><input name="descricao" id="p4">
-  <label class="inl"><input type="checkbox" name="concluido"> Concluído</label>`,
-  build:f=>({data:f.get('data'),titulo:f.get('titulo').trim(),tipo:f.get('tipo'),descricao:f.get('descricao').trim(),concluido:!!f.get('concluido')})},
- site:{t:'Editar dados do blog',e:'Editar dados do blog',
-  html:()=>`<label for="s1">Título da tese</label><input name="titulo" id="s1"><label for="s2">Tema</label><input name="tema" id="s2">
-  <label for="s3">Nome do blog <small>(cabeçalho)</small></label><input name="nomeBlog" id="s3">
-  <div class="g2"><div><label for="s4">Doutoranda</label><input name="doutoranda" id="s4"></div><div><label for="s5">Orientadora</label><input name="orientadora" id="s5"></div></div>
-  <label for="s6">Coorientadora</label><input name="coorientadora" id="s6"><label for="s7">Instituição</label><input name="instituicao" id="s7"><label for="s8">Programa</label><input name="programa" id="s8">
-  <label for="s9">Resumo</label><textarea name="resumo" id="s9" rows="3"></textarea>
-  <div class="g2"><div><label for="s10">Próxima reunião</label><input type="date" name="proximaReuniao" id="s10"></div><div><label for="s11">Frequência <small>(dias)</small></label><input type="number" name="frequenciaDias" id="s11" min="1"></div></div>
-  <div class="g2"><div><label for="s12">Horário <small>(opcional)</small></label><input name="horario" id="s12" placeholder="14h"></div><div><label for="s13">Local ou link <small>(opcional)</small></label><input name="local" id="s13"></div></div>
-  <label for="s14">Datas sem reunião <small>(AAAA-MM-DD, separadas por vírgula)</small></label><input name="pular" id="s14" placeholder="2026-12-25">`,
-  build:f=>({titulo:f.get('titulo').trim(),tema:f.get('tema').trim(),nomeBlog:f.get('nomeBlog').trim(),doutoranda:f.get('doutoranda').trim(),orientadora:f.get('orientadora').trim(),coorientadora:f.get('coorientadora').trim(),instituicao:f.get('instituicao').trim(),programa:f.get('programa').trim(),resumo:f.get('resumo').trim(),proximaReuniao:f.get('proximaReuniao'),frequenciaDias:+f.get('frequenciaDias')||14,horario:f.get('horario').trim(),local:f.get('local').trim(),pularReunioes:csvl(f.get('pular'))})}
-};
-const FILL={reuniao:x=>({data:x.data||'',titulo:x.titulo||'',anot:J(x.anotacoes),tags:T(x.tags),link:x.link||''}),
- artigo:x=>({titulo:x.titulo||'',autores:x.autores||'',ano:x.ano||'',leitura:x.leitura||'',veiculo:x.veiculo||'',doi:x.doi||'',status:sk(x.status),motivo:x.motivo||'',tags:T(x.tags)}),
- lacuna:x=>({titulo:x.titulo||'',data:x.data||'',status:{identificada:'identificada',exploracao:'em exploração',questao:'virou questão de pesquisa',descartada:'descartada'}[lk(x.status)],descricao:x.descricao||'',evid:J(x.evidencias),proximo:x.proximo||'',tags:T(x.tags)}),
- prazo:x=>({titulo:x.titulo||'',data:x.data||'',tipo:x.tipo||'prazo',descricao:x.descricao||'',concluido:!!x.concluido}),
- site:x=>({titulo:x.titulo||'',tema:x.tema||'',nomeBlog:x.nomeBlog||'',doutoranda:x.doutoranda||'',orientadora:x.orientadora||'',coorientadora:x.coorientadora||'',instituicao:x.instituicao||'',programa:x.programa||'',resumo:x.resumo||'',proximaReuniao:x.proximaReuniao||'',frequenciaDias:x.frequenciaDias||14,horario:x.horario||'',local:x.local||'',pular:T(x.pularReunioes)})};
-async function openForm(kind,k){if(!D.edit)return;await load4();const c=F[kind],old=kind==='site'?D.s:(k?LST[kind]().find(x=>x.k===k):null);let arm=false;
-  dlg.innerHTML=`<form id="fm"><h2>${old?c.e:c.t}</h2>${c.html()}<div class="row">${old&&kind!=='site'?'<button type="button" class="btn" id="rm" style="margin-right:auto">Excluir</button>':''}<button type="button" class="btn" id="cx">Cancelar</button><button class="btn pri">${old?'Salvar alterações':'Salvar'}</button></div></form>`;
-  dlg.showModal();$('#cx').onclick=()=>dlg.close();const fm=$('#fm');
-  if(old)for(const [n,v] of Object.entries(FILL[kind](old))){const el=fm.elements[n];if(!el)continue;if(el.type==='checkbox')el.checked=!!v;else el.value=v??''}
-  c.init&&c.init(old);
-  if(old&&kind!=='site')$('#rm').onclick=e=>{if(!arm){arm=true;e.target.textContent='Confirmar exclusão';return}const l=LST[kind]();l.splice(l.indexOf(old),1);dlg.close();route();persist(kind)};
-  fm.onsubmit=e=>{e.preventDefault();const en=c.build(new FormData(fm));
-    if(kind==='site'){Object.assign(D.s,en);$('#brand').textContent=D.s.nomeBlog||'Tese de doutorado'}else if(old)Object.assign(old,en);else LST[kind]().unshift(en);
-    dlg.close();route();persist(kind)};
-}
-document.addEventListener('click',e=>{const a=e.target.closest('[data-act]'),d=e.target.closest('[data-edit]'),n=e.target.closest('[data-done]');
-  if(a)openForm(a.dataset.act);else if(d)openForm(d.dataset.edit,d.dataset.k);
-  else if(n&&D.edit){const x=D.c.find(y=>y.k===n.dataset.done);if(x){x.concluido=!x.concluido;route();persist('prazo')}}});
-lock.onclick=()=>{
-  if(D.edit){setOwner(false);try{localStorage.removeItem('ghtoken')}catch(e){}route();return}
-  const demo=D.s?.modoDemo,ok=demo||repoOf();
-  dlg.innerHTML=`<h2>Modo editor</h2><p>Só quem tem permissão de escrita no repositório da pesquisa consegue ativar. Para os demais visitantes, os botões de cadastro e edição ficam ocultos.</p>
-  ${demo?'<p class="meta">Prévia de demonstração: entra sem token e as alterações valem só nesta visita.</p>':ok?'<label for="tk0">Token do GitHub <small>(fica só neste navegador)</small></label><input type="password" id="tk0" placeholder="github_pat_..." autocomplete="off">':'<p class="meta">Não foi possível descobrir o repositório. Preencha o campo repo em site.json (usuario/repositorio).</p>'}
-  <p class="meta" id="msg" role="status"></p><div class="row"><button type="button" class="btn" id="cx">Cancelar</button><button class="btn pri" id="go" ${ok?'':'disabled'}>Entrar</button></div>`;
-  dlg.showModal();$('#cx').onclick=()=>dlg.close();
-  $('#go').onclick=async()=>{if(demo){setOwner(true);dlg.close();return}
-    const t=$('#tk0').value.trim();if(!t){$('#msg').textContent='Cole o token para entrar.';return}
-    $('#msg').textContent='Verificando permissão...';
-    if(await verify(t)){try{localStorage.setItem('ghtoken',t)}catch(e){}setOwner(true);dlg.close()}
-    else $('#msg').textContent='Token inválido ou sem permissão de escrita neste repositório.'}};
-
-const V={inicio,reunioes,calendario,rsl,lacunas};
+const V={reunioes,rsl,lacunas};
 async function route(){
-  const h=location.hash.slice(1),pm=/^(reuniao|lacuna)-(.+)$/.exec(h),v=V[h]?h:pm?(pm[1]==='reuniao'?'reunioes':'lacunas'):'inicio';
-  document.querySelectorAll('nav a').forEach(a=>a.dataset.v===v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
-  try{await load4();keys();pm?post(pm[1],pm[2]):await V[v]()}catch(e){app.innerHTML='<div class="err">'+esc(e.message)+'</div>'}
+  const v=V[location.hash.slice(1)]?location.hash.slice(1):'reunioes';
+  document.querySelectorAll('.tabs a').forEach(a=>a.dataset.v===v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  try{await V[v]()}catch(e){app.innerHTML=`<div class="errbox">${e.html||esc(e.message)}</div>`}
 }
 (async()=>{
-  try{const s=await load('s','site.json');$('#brand').textContent=s.nomeBlog;document.title=s.nomeBlog+' | '+s.doutoranda;$('#foot').textContent='© '+new Date().getFullYear()+' '+s.doutoranda}catch(e){}
   let t;try{t=localStorage.getItem('tema')}catch(e){}
   const set=d=>document.documentElement.classList.toggle('dark',d);set(t?t==='dark':matchMedia('(prefers-color-scheme:dark)').matches);
   $('#theme').onclick=()=>{const d=!document.documentElement.classList.contains('dark');set(d);try{localStorage.setItem('tema',d?'dark':'light')}catch(e){}};
+  try{S=await getJSON('site.json')}catch(e){SERR=e}
+  $('#brand').textContent=S.nomeBlog||'Tese de doutorado';$('#h1').textContent=S.titulo||'Tese de doutorado';$('#tema').textContent=S.tema||'';$('#lead').textContent=S.resumo||'';
+  document.title=(S.nomeBlog||'Tese de doutorado')+(S.doutoranda?' | '+S.doutoranda:'');$('#foot').textContent='© '+new Date().getFullYear()+' '+(S.doutoranda||'');
+  $('#info').innerHTML=[['Doutoranda',S.doutoranda],['Orientadora',S.orientadora],['Coorientadora',S.coorientadora],['Instituição',S.instituicao],['Programa',S.programa]].filter(i=>i[1]).map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+  if(!$('#info').innerHTML)$('#info').style.display='none';
   addEventListener('hashchange',()=>{route();scrollTo(0,0)});route();
-  if(tok()&&repoOf()&&await verify(tok()))setOwner(true);
 })();
 </script>
 </body>
