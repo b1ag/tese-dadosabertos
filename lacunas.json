@@ -1,7 +1,7 @@
 [
   {
     "data": "2026-10-25",
-    "titulo": "Exemplo: pouca evidência sobre o uso efetivo dos dados abertos",
+    "titulo": "A existência de pouca evidência sobre o uso efetivo dos dados abertos",
     "status": "em exploração",
     "descricao": "Edite esta anotação. Ideia: muitos estudos medem a publicação de dados, poucos medem quem usa e com que resultado.",
     "evidencias": [
@@ -16,10 +16,10 @@
   },
   {
     "data": "2026-10-12",
-    "titulo": "Exemplo: qualidade e metadados de dados estatísticos oficiais",
-    "status": "identificada",
-    "descricao": "Edite esta anotação. Possível lacuna sobre padrões de metadados em portais de dados estatísticos.",
-    "evidencias": [],
+    "titulo": "A situação atual da qualidade e metadados de dados estatísticos oficiais é um mecanismo de cortina de fumaça informacional?",
+    "status": "Em exploração",
+    "descricao": " ",
+    "evidencias": [ "Em exploração" ],
     "proximo": "",
     "tags": [
       "metadados",
@@ -27,3 +27,17 @@
     ]
   }
 ]
+[
+  {
+    "data": "2026-05-29",
+    "titulo": "O papel do agente intermediário no ganho financeiro sob a Política de Dados Abertos",
+    "status": "Em exploração",
+    "descricao": "Quem realmente lucra com a abertura de dados governamentais abertos? Quem os efetivamente reúsa?.",
+    "evidencias": [
+      "Em exploração"
+    ],
+    "proximo": "Mapear na revisão quantos estudos avaliam uso e impacto.",
+    "tags": [
+      "uso",
+      "impacto"
+    ]
