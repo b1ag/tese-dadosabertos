@@ -52,3 +52,21 @@
     ],
     "tags": ["reuniao"]
   },
+  {
+    "data": "2026-07-10",
+    "titulo": "Reunião #3",
+    "anotacoes": [
+      "Debateu-se o desconhecimento do cidadão quanto aos processos e fluxos internos, de modo que sua racionalidade limitada impede o pleno exercício de fiscalização.",
+      "Além disso, debateu-se a fragilidade da linguagem semântica dos dados como um fator adicional ao reforço da distância entre Governo x Cidadão",
+      "No âmbito estrutural, apresentou-se a estrutura mínima da teste, tais como:",
+      "1. Revisão de literatura: fundamento teórico,",
+      "2. Artigos da revisão sistemática (com possibilidade de aproveitamento para submissão em eventos futuros)",
+      "2.1. Análise legislativa profunda (Governo Digital, Dados Abertos e Transparência)",
+      "2.2. Escolher o foco da pesquisa (legislação, avaliação das métricas de qualidade ou focar no Estado da arte, por exemplo)"
+      "
+    ],
+    "encaminhamentos": [
+      { "texto": "Documentar os usos de IA sempre com bom senso e transparência", "feito": true }
+    ],
+    "tags": ["tese", "dadosabertos", "ia", "qualidade"]
+  },
