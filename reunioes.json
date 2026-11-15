@@ -1,7 +1,7 @@
 [
   {
     "data": "2026-11-06",
-    "titulo": "Reunião #1",
+    "titulo": "Reunião #11",
     "anotacoes": [ 
       "Destacada a importância da revisão sistemática como atividade pretérita à construção da lacuna de pesquisa.",
       "Reforço da importância de seguir o protocolo da RSL com foco e otimização de tempo (leitura resumida do artigo para avaliar se ele vai ou não compor a bibliografia da pesquisa)."
@@ -14,3 +14,29 @@
     "tags": ["rsl", "protocolo"]
   }
 ]
+{
+  "data": "2026-05-29",
+  "titulo": "Reunião #1",
+  "anotacoes": [
+    "Foi debatido sobre algumas metodologias já existentes em Dados Abertos.",
+    "Por isso, requer-se a realização de 2 exercícios para serem apresentados na próxima reunião. São eles:",
+    "  1. Estudar o índice dedados abertos para cidades (ODI 2023)",
+    "  2. Cruzar com os princípios de qualidade de dados",
+    "  3. Verificar a quem o questionário do índice é aplicado (Cidadão vs. publicador)"
+    "  4. Verificar os princípios de ciência aberta", 
+    " ", 
+    " Links úteis:" 
+    " https://www.go-fair.org/fair-principles ", 
+    " https://indicedadosabertos.ok.org.br/sobre ",
+    " https://repositorio.fgv.br/items/eb4dea82-b485-4418-b0bc-277aaa259bda ",
+    " https://basedosdados.org/ " 
+  ],
+  "encaminhamentos": [
+    { "texto": "Realização do exercício 1", "feito": true },
+    { "texto": "Realização do exercício 2", "feito": false },
+    { "texto": "Realização do exercício 3", "feito": false },
+    { "texto": "Realização do exercício 4", "feito": false },
+    
+  ],
+  "tags": ["dadosabertos", "odi", "ciencia", "aberta"]
+}
