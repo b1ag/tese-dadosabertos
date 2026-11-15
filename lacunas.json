@@ -1,9 +1,10 @@
+
 [
   {
     "data": "2026-10-25",
     "titulo": "A existência de pouca evidência sobre o uso efetivo dos dados abertos",
-    "status": "em exploração",
-    "descricao": "Edite esta anotação. Ideia: muitos estudos medem a publicação de dados, poucos medem quem usa e com que resultado.",
+    "status": "Em exploração",
+    "descricao": "Ideia: muitos estudos medem a publicação de dados, poucos medem quem usa e com que resultado.",
     "evidencias": [
       "Estudo X (2023), seção de limitações",
       "Reunião de 20/10"
@@ -18,21 +19,21 @@
     "data": "2026-10-12",
     "titulo": "A situação atual da qualidade e metadados de dados estatísticos oficiais é um mecanismo de cortina de fumaça informacional?",
     "status": "Em exploração",
-    "descricao": " ",
-    "evidencias": [ "Em exploração" ],
+    "descricao": "",
+    "evidencias": [
+      "Em exploração"
+    ],
     "proximo": "",
     "tags": [
       "metadados",
       "qualidade"
     ]
-  }
-]
-[
+  },
   {
     "data": "2026-05-29",
     "titulo": "O papel do agente intermediário no ganho financeiro sob a Política de Dados Abertos",
     "status": "Em exploração",
-    "descricao": "Quem realmente lucra com a abertura de dados governamentais abertos? Quem os efetivamente reúsa?.",
+    "descricao": "Quem realmente lucra com a abertura de dados governamentais abertos? Quem os efetivamente reusa?",
     "evidencias": [
       "Em exploração"
     ],
@@ -41,3 +42,5 @@
       "uso",
       "impacto"
     ]
+  }
+]
