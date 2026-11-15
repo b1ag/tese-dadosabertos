@@ -31,10 +31,24 @@
     ],
     "encaminhamentos": [
       { "texto": "Realização do exercício 1", "feito": true },
-      { "texto": "Realização do exercício 2", "feito": false },
-      { "texto": "Realização do exercício 3", "feito": false },
-      { "texto": "Realização do exercício 4", "feito": false }
+      { "texto": "Realização do exercício 2", "feito": true },
+      { "texto": "Realização do exercício 3", "feito": true },
+      { "texto": "Realização do exercício 4", "feito": true }
     ],
     "tags": ["dadosabertos", "odi", "ciencia", "aberta"]
   }
 ]
+  {
+    "data": "2026-06-26",
+    "titulo": "Reunião #2",
+    "anotacoes": [
+      "As discussões sobre o conceito e os princípios de ciência aberta foi retormado.",
+      "Logo, destaca-se que a ciência aberta pressupõe um conhecimento para a sociedade e não para a academia."
+    ],
+    "encaminhamentos": [
+      { "texto": "Explorar os slides de gargalos de pesquisa (slides apresentados em cumprimento dos exercícios propostos na reunião anterior", "feito": true },
+      { "texto": "Explorar os problemas de governança", "feito": true },
+      { "texto": "Aprofundar mais as formas de avaliação de dados abertos e ciência aberta", "feito": true }
+    ],
+    "tags": ["reuniao"]
+  },
