@@ -67,5 +67,19 @@
       { "texto": "Documentar os usos de IA sempre com bom senso e transparência", "feito": true }
     ],
     "tags": ["tese", "dadosabertos", "ia", "qualidade"]
+  },
+  {
+    "data": "2026-07-08",
+    "titulo": "Reunião #4",
+    "anotacoes": [
+      "Conversou-se sobre os próximos passos para a elaboração do protocolo de Revisão Sistemática da pesquisa.",
+      "Por isso, ficou acordado a elaboração e a apresentação do protocolo na próxima reunião"
+    ],
+    "encaminhamentos": [
+      { "texto": "Elaborar o protocolo da RSL", "feito": true },
+      { "texto": "Elaborar a apresentação do protocolo", "feito": true },
+      { "texto": "Executar o primeiro bloco da RSL", "feito": true }
+    ],
+    "tags": ["reuniao", "rsl", "protocolo"]
   }
 ]
