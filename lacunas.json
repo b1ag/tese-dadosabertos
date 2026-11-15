@@ -42,5 +42,19 @@
       "uso",
       "impacto"
     ]
+  },
+   {
+    "data": "2026-11-14",
+    "titulo": "Notoriamente, existem níveis distintos de maturidade de dados em distintos órgãos. Esta discrepância é um projeto político?",
+    "status": "Em exploração",
+    "descricao": "Setores do governo politicamente em evidência e sensivelmente demandados tem uma cultura de dados mais frágil? Por exemplo: saúde e educação possui a mesma cultura de dados do que órgãos de segurança? O questionamento basea-se na preferência de governos liberais por temáticas como segurança em detrimento de alas mais sociais-democratas. A qualidade de dados consegue refletir o projeto político do governo em exercício?",
+    "evidencias": [
+      "Em exploração"
+    ],
+    "proximo": "Mapeara série histórica da qualidade de dados (volume e definição de metadados) em regiões como o Sudeste (majoritamente governada por políticos liberais) e o Nordeste (mahjoritariamente governado por políticos mais social-democratas)",
+    "tags": [
+      "uso",
+      "impacto"
+    ]
   }
 ]
